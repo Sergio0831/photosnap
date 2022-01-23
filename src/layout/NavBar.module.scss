@@ -1,0 +1,75 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.nav {
+  @include flex($align-items: $align-center, $flex-direction: column);
+
+  row-gap: $gap-base * 2;
+  width: $width-base;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $transition, visibility $transition;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @media (min-width: 48em) {
+    @include flex($align-items: $align-center, $flex-direction: row);
+
+    width: unset;
+  }
+
+  ul {
+    @include flex($align-items: $align-center, $flex-direction: column);
+
+    padding-top: $padding-base * 3.2;
+    border-bottom: 1px solid #979797;
+    width: $width-base;
+
+    @media (min-width: 48em) {
+      @include flex($align-items: $align-center, $flex-direction: row);
+
+      column-gap: 3.7rem;
+      padding-top: 0;
+      border-bottom: 0;
+    }
+  }
+
+  li {
+    padding-bottom: $padding-base * 2;
+
+    @media (min-width: 48em) {
+      padding-bottom: 0;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-transform: uppercase;
+    letter-spacing: $ls-base * 1.5;
+    transition: color $transition;
+
+    @include font($font-weight: $fw-bold, $font-size: $fs-small);
+
+    &:hover {
+      color: $color-grey;
+    }
+
+    @media (min-width: 48em) {
+      letter-spacing: $ls-base;
+
+      @include font($font-weight: $fw-regular, $font-size: $fs-xs);
+    }
+  }
+
+  &__btn {
+    display: $d-block;
+    width: $width-base;
+
+    @media (min-width: 48em) {
+      display: none;
+    }
+  }
+}

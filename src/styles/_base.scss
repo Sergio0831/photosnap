@@ -1,0 +1,73 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+@import-normalize;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+body {
+  font-family: $font-primary;
+  color: $color-black;
+
+  @include font(
+    $font-weight: $fw-regular,
+    $font-size: $fs-small,
+    $line-height: 2.5rem
+  );
+}
+
+h1,
+h2 {
+  @include font(
+    $font-weight: $fw-bold,
+    $font-size: $fs-xl,
+    $line-height: 4.8rem
+  );
+}
+
+h3 {
+  @include font(
+    $font-weight: $fw-bold,
+    $font-size: $fs-large,
+    $line-height: 2.5rem
+  );
+}
+
+h4 {
+  @include font(
+    $font-weight: $fw-bold,
+    $font-size: $fs-medium,
+    $line-height: 2.5rem
+  );
+}
+
+h5 {
+  @include font(
+    $font-weight: $fw-bold,
+    $font-size: $fs-xs,
+    $line-height: 1.6rem
+  );
+}
+
+.section-center {
+  width: $width-base;
+  max-width: 102rem;
+  padding: 0 $padding-base * 4;
+  margin: 0 auto;
+}

@@ -1,0 +1,61 @@
+// Colors
+
+$main-accent: linear-gradient(45deg, #ffc593 0%, #bc7198 50%, #5a77ff 100%);
+$color-blue: #5a77ff;
+$color-light-blue: #63afdb;
+$color-dark-blue: #6028f1;
+$color-electric-blue: #65ffeb;
+$color-teal-blue: #27718a;
+$color-purple: #bc7198;
+$color-orange: #ffc593;
+$color-dark-orange: #ff5a5a;
+$color-topaz: #f6c683;
+$color-dark-rose: #d3205a;
+$color-red: #de3838;
+$color-black: #000;
+$color-white: #fff;
+$color-grey: #b3b3b3;
+$color-light-grey: #dfdfdf;
+
+// Font
+$font-primary: dm-sans, sans-serif;
+
+$fw-regular: 400;
+$fw-bold: 700;
+
+$fs-xl: 4rem;
+$fs-large: 2.4rem;
+$fs-medium: 1.8rem;
+$fs-small: 1.5rem;
+$fs-xs: 1.2rem;
+
+// Flex
+$align-center: center;
+$justify-center: center;
+$justify-between: space-between;
+$justify-end: end;
+$justify-start: start;
+$wrap: wrap;
+
+// Display
+$d-grid: grid;
+$d-flex: flex;
+$d-block: block;
+$d-inline-block: inline-block;
+
+// Position
+$p-relative: relative;
+$p-absolute: absolute;
+$p-fixed: fixed;
+
+// Space
+$margin-base: 1rem;
+$padding-base: 1rem;
+$gap-base: 1rem;
+$width-base: 100%;
+$height-base: 100%;
+$radius-round: 50%;
+$ls-base: 2px;
+
+// Animation
+$transition: 0.25s ease-out;

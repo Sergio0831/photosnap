@@ -1,5 +1,11 @@
-function App() {
-  return <h1>Hello</h1>;
-}
+import Layout from "./layout/Layout";
+
+const App = () => {
+  return (
+    <Layout>
+      <section></section>
+    </Layout>
+  );
+};
 
 export default App;

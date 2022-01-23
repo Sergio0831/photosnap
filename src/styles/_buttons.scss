@@ -1,0 +1,86 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+.btn {
+  cursor: pointer;
+  text-transform: uppercase;
+  border: none;
+  font-family: inherit;
+  letter-spacing: 2px;
+
+  @include font($font-weight: $fw-bold, $font-size: $fs-xs);
+}
+
+.btn-fill {
+  @extend .btn;
+  padding: $padding-base * 1.2 $padding-base * 2.4;
+  transition: background-color $transition, color $transition;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px $color-black;
+  }
+}
+
+.btn-fill--dark {
+  @extend .btn-fill;
+
+  color: $color-white;
+  background-color: $color-black;
+
+  &:hover,
+  &:active {
+    background-color: $color-light-grey;
+    color: $color-black;
+  }
+}
+
+.btn-fill--light {
+  @extend .btn-fill;
+
+  color: $color-black;
+  background-color: $color-white;
+
+  &:hover {
+    background-color: $color-light-grey;
+    color: inherit;
+  }
+}
+
+.btn-outline {
+  @extend .btn;
+  background: transparent;
+
+  position: $p-relative;
+
+  &::before {
+    content: "";
+    @include position($p-absolute, $bottom: 0, $left: 0);
+
+    display: $d-inline-block;
+    height: 1px;
+    width: 0;
+    background: $color-black;
+    transition: width $transition;
+  }
+
+  &:hover::before {
+    width: $width-base;
+  }
+}
+
+.btn-outline--dark {
+  @extend .btn-outline;
+
+  color: $color-black;
+}
+
+.btn-outline--light {
+  @extend .btn-outline;
+
+  color: $color-white;
+
+  &:hover {
+    border-bottom: 1px solid $color-white;
+  }
+}
