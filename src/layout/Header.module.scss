@@ -1,5 +1,6 @@
 @use "../styles/variables" as *;
 @use "../styles/mixins" as *;
+@use "../styles/breakpoints" as *;
 
 .header {
   height: auto;
@@ -11,7 +12,7 @@
     $flex-direction: column
   );
 
-  @media (min-width: 48em) {
+  @include tablet {
     height: 7.2rem;
 
     @include flex($flex-direction: row);
@@ -26,7 +27,7 @@
     height: 7.2rem;
     width: $width-base;
 
-    @media (min-width: 48em) {
+    @include tablet {
       width: unset;
     }
   }
@@ -76,15 +77,15 @@
       }
     }
 
-    @media (min-width: 48em) {
-      display: none;
+    @include tablet {
+      display: $d-none;
     }
   }
 
   &__btn {
-    display: none;
+    display: $d-none;
 
-    @media (min-width: 48em) {
+    @include tablet {
       display: $d-block;
     }
   }

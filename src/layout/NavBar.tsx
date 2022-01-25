@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { NavLink } from "react-router-dom";
 import Button from "../components/Button";
 import { useAppContext } from "../store/context";
 import classes from "./NavBar.module.scss";
@@ -8,7 +9,7 @@ type NavBarProps = {
 };
 
 const NavBar = ({ footer }: NavBarProps) => {
-  const { isOpen } = useAppContext();
+  const { isOpen, closeNavBar } = useAppContext();
 
   const navBarClasses = clsx({
     [classes.nav]: true,
@@ -20,20 +21,50 @@ const NavBar = ({ footer }: NavBarProps) => {
       <ul>
         {footer && (
           <li>
-            <Button link='/'>home</Button>
+            <NavLink to='/' className={classes.nav__link}>
+              home
+            </NavLink>
           </li>
         )}
         <li>
-          <Button link='/stories'>stories</Button>
+          <NavLink
+            to='/stories'
+            className={({ isActive }) =>
+              isActive ? `${classes.activeLink}` : ""
+            }
+            onClick={closeNavBar}
+          >
+            stories
+          </NavLink>
         </li>
         <li>
-          <Button link='/features'>features</Button>
+          <NavLink
+            to='/features'
+            className={({ isActive }) =>
+              isActive ? `${classes.activeLink}` : ""
+            }
+            onClick={closeNavBar}
+          >
+            features
+          </NavLink>
         </li>
         <li>
-          <Button link='/pricing'>pricing</Button>
+          <NavLink
+            to='/pricing'
+            className={({ isActive }) =>
+              isActive ? `${classes.activeLink}` : ""
+            }
+            onClick={closeNavBar}
+          >
+            pricing
+          </NavLink>
         </li>
       </ul>
-      <Button className={`${classes.nav__btn} btn-fill--dark`} type='button'>
+      <Button
+        className={`${classes.nav__btn} btn-fill--dark`}
+        type='button'
+        onClick={closeNavBar}
+      >
         get in invite
       </Button>
     </nav>

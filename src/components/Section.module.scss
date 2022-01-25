@@ -1,0 +1,149 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+@use "../styles/breakpoints" as *;
+
+.section {
+  display: $d-grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: auto;
+
+  @include mobile {
+    grid-template-columns: repeat(12, 1fr);
+    height: 60rem;
+  }
+
+  &__text {
+    grid-column: span 12;
+    grid-row: 2;
+    padding: $padding-base * 7.2 $padding-base * 3;
+
+    @include flex(
+      $flex-direction: column,
+      $justify-content: $justify-center,
+      $align-items: $align-center
+    );
+
+    .text__container {
+      width: $width-base;
+
+      @include mobile {
+        width: $width-base;
+        max-width: 38rem;
+      }
+    }
+
+    h2 {
+      margin-bottom: $margin-base * 2;
+    }
+
+    p {
+      margin-bottom: $margin-base * 4.8;
+    }
+
+    .btn__container {
+      @include flex($align-items: $align-center);
+      column-gap: $gap-base * 1.8;
+
+      svg {
+        height: 1.2rem;
+        width: 4.2rem;
+      }
+    }
+
+    @include mobile {
+      grid-column: span 8;
+      grid-row: 1 / -1;
+      padding: 0 0 0 $padding-base * 3;
+    }
+
+    @include tablet {
+      grid-column: span 6;
+      grid-row: 1 / -1;
+    }
+
+    @include laptop {
+      grid-column: span 5;
+      grid-row: 1 / -1;
+    }
+  }
+
+  &__image {
+    position: $p-relative;
+    grid-column: span 12;
+    grid-row: 1;
+
+    @include mobile {
+      grid-column: span 4;
+      grid-row: 1 / -1;
+    }
+
+    @include tablet {
+      grid-column: span 6;
+      grid-row: 1 / -1;
+    }
+
+    @include laptop {
+      grid-column: span 7;
+      grid-row: 1 / -1;
+    }
+
+    img {
+      position: unset;
+      display: $d-block;
+      width: $width-base;
+      height: $height-base;
+      object-fit: cover;
+
+      @include mobile {
+        position: $p-absolute;
+      }
+    }
+  }
+
+  &__dark {
+    background-color: $color-black;
+    color: $color-white;
+  }
+
+  &:first-child {
+    .text__container {
+      position: $p-relative;
+
+      &::before {
+        content: "";
+        position: $p-absolute;
+        top: -7.2rem;
+        height: 6px;
+        width: $width-base / 2;
+        background-image: $main-accent;
+
+        @include mobile {
+          height: $height-base;
+          width: 6px;
+          top: auto;
+          left: -3rem;
+        }
+      }
+    }
+
+    @include mobile {
+      height: 65rem;
+    }
+  }
+
+  &:nth-child(2) {
+    .section__image {
+      @include mobile {
+        grid-column: 1 / 5;
+      }
+
+      @include tablet {
+        grid-column: 1 / 7;
+      }
+
+      @include laptop {
+        grid-column: 1 / 8;
+      }
+    }
+  }
+}

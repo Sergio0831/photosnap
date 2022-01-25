@@ -1,37 +1,47 @@
 @use "../styles/variables" as *;
 @use "../styles/mixins" as *;
+@use "../styles/breakpoints" as *;
 
 .nav {
   @include flex($align-items: $align-center, $flex-direction: column);
+  @include position($position: $p-absolute, $top: 7.2rem);
 
+  background-color: $color-white;
   row-gap: $gap-base * 2;
   width: $width-base;
+  padding: $padding-base * 3.2 $padding-base * 4;
   opacity: 0;
   visibility: hidden;
-  transition: opacity $transition, visibility $transition;
+  z-index: -1;
+  transition: opacity $transition, visibility $transition, z-index $transition;
 
   &.open {
     opacity: 1;
     visibility: visible;
+    z-index: 1;
   }
 
-  @media (min-width: 48em) {
+  @include tablet {
     @include flex($align-items: $align-center, $flex-direction: row);
 
     width: unset;
+    position: unset;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
   }
 
   ul {
     @include flex($align-items: $align-center, $flex-direction: column);
 
-    padding-top: $padding-base * 3.2;
     border-bottom: 1px solid #979797;
     width: $width-base;
 
-    @media (min-width: 48em) {
+    @include tablet {
       @include flex($align-items: $align-center, $flex-direction: row);
 
-      column-gap: 3.7rem;
+      column-gap: $gap-base * 3.7;
       padding-top: 0;
       border-bottom: 0;
     }
@@ -40,36 +50,40 @@
   li {
     padding-bottom: $padding-base * 2;
 
-    @media (min-width: 48em) {
+    @include tablet {
       padding-bottom: 0;
     }
   }
 
   a {
-    color: inherit;
     text-transform: uppercase;
     letter-spacing: $ls-base * 1.5;
     transition: color $transition;
 
     @include font($font-weight: $fw-bold, $font-size: $fs-small);
 
-    &:hover {
+    &:hover,
+    &:active {
       color: $color-grey;
     }
 
-    @media (min-width: 48em) {
+    @include tablet {
       letter-spacing: $ls-base;
 
       @include font($font-weight: $fw-regular, $font-size: $fs-xs);
     }
   }
 
+  .activeLink {
+    color: $color-grey;
+  }
+
   &__btn {
     display: $d-block;
     width: $width-base;
 
-    @media (min-width: 48em) {
-      display: none;
+    @include tablet {
+      display: $d-none;
     }
   }
 }

@@ -4,12 +4,14 @@ import { appReducer } from "./reducers";
 
 export interface AppState {
   isOpen: boolean;
-  toggleNav: () => void;
+  closeNavBar: () => void;
+  toggleNavBar: () => void;
 }
 
 const initialState: AppState = {
   isOpen: false,
-  toggleNav: () => {}
+  closeNavBar: () => {},
+  toggleNavBar: () => {}
 };
 
 export const AppContext = createContext<AppState>(initialState);
@@ -17,12 +19,16 @@ export const AppContext = createContext<AppState>(initialState);
 export const AppProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
 
-  const toggleNav = () => {
-    dispatch({ type: ActionType.ToggleNav });
+  const closeNavBar = () => {
+    dispatch({ type: ActionType.CloseNavBar });
+  };
+
+  const toggleNavBar = () => {
+    dispatch({ type: ActionType.ToggleNavBar });
   };
 
   return (
-    <AppContext.Provider value={{ ...state, toggleNav }}>
+    <AppContext.Provider value={{ ...state, toggleNavBar, closeNavBar }}>
       {children}
     </AppContext.Provider>
   );

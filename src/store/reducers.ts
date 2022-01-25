@@ -3,7 +3,12 @@ import { AppState } from "./context";
 
 export const appReducer = (state: AppState, action: AppActions): AppState => {
   switch (action.type) {
-    case ActionType.ToggleNav:
+    case ActionType.CloseNavBar:
+      return {
+        ...state,
+        isOpen: false
+      };
+    case ActionType.ToggleNavBar:
       return {
         ...state,
         isOpen: !state.isOpen

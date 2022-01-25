@@ -7,7 +7,7 @@ import { useAppContext } from "../store/context";
 import clsx from "clsx";
 
 const Header = () => {
-  const { isOpen, toggleNav } = useAppContext();
+  const { isOpen, toggleNavBar, closeNavBar } = useAppContext();
 
   const menuBtnClasses = clsx({
     [classes.menu__btn]: true,
@@ -17,18 +17,18 @@ const Header = () => {
   return (
     <header className={`${classes.header} section-center`}>
       <div className={classes.container}>
-        <Link to='/' className={classes.logo}>
+        <Link to='/' className={classes.logo} onClick={closeNavBar}>
           <Logo />
         </Link>
         <Button
           type='button'
           className={menuBtnClasses}
-          onClick={toggleNav}
+          onClick={toggleNavBar}
         ></Button>
       </div>
       <NavBar />
       <Button className={`${classes.header__btn} btn-fill--dark`} type='button'>
-        get in invite
+        get an invite
       </Button>
     </header>
   );

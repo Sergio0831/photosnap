@@ -1,10 +1,13 @@
-import Image from "../assets/home/desktop/beautiful-stories.jpg";
+import Section from "../components/Section";
+import { homeSections } from "../data/home-sections";
 
 const Home = () => {
   return (
-    <section>
-      <img src={Image} alt='dad' />
-    </section>
+    <>
+      {homeSections.map((section, index) => (
+        <Section key={index} {...section} />
+      ))}
+    </>
   );
 };
 

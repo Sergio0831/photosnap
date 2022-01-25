@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 type ButtonProps = {
   type?: "button" | "submit" | "reset";
   className?: string;
+  activeClassName?: string;
   link?: string;
   children?: React.ReactNode;
   onClick?: () => void;
@@ -11,7 +12,11 @@ type ButtonProps = {
 
 const Button = ({ type, className, link, children, onClick }: ButtonProps) => {
   if (link) {
-    return <Link to={link}>{children}</Link>;
+    return (
+      <Link to={link} onClick={onClick}>
+        {children}
+      </Link>
+    );
   }
 
   return (

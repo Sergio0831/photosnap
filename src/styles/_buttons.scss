@@ -9,17 +9,16 @@
   letter-spacing: 2px;
 
   @include font($font-weight: $fw-bold, $font-size: $fs-xs);
+
+  &:focus {
+    outline: 2px dotted $color-purple;
+  }
 }
 
 .btn-fill {
   @extend .btn;
   padding: $padding-base * 1.2 $padding-base * 2.4;
   transition: background-color $transition, color $transition;
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px $color-black;
-  }
 }
 
 .btn-fill--dark {
@@ -41,7 +40,8 @@
   color: $color-black;
   background-color: $color-white;
 
-  &:hover {
+  &:hover,
+  &:active {
     background-color: $color-light-grey;
     color: inherit;
   }
@@ -50,7 +50,6 @@
 .btn-outline {
   @extend .btn;
   background: transparent;
-
   position: $p-relative;
 
   &::before {
@@ -60,7 +59,7 @@
     display: $d-inline-block;
     height: 1px;
     width: 0;
-    background: $color-black;
+
     transition: width $transition;
   }
 
@@ -69,18 +68,22 @@
   }
 }
 
-.btn-outline--dark {
+.btn-outline--light {
   @extend .btn-outline;
 
   color: $color-black;
+
+  &::before {
+    background: $color-black;
+  }
 }
 
-.btn-outline--light {
+.btn-outline--dark {
   @extend .btn-outline;
 
   color: $color-white;
 
-  &:hover {
-    border-bottom: 1px solid $color-white;
+  &::before {
+    background: $color-white;
   }
 }
