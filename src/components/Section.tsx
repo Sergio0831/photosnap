@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { useRef } from "react";
 import { SectionTypes } from "../types/Section.types";
 import ArrowLink from "./ArrowLink";
 import classes from "./Section.module.scss";

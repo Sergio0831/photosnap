@@ -8,6 +8,8 @@ function useOnScreen(
   const [isIntersecting, setIntersecting] = useState(false);
 
   useEffect(() => {
+    let observerRefValue: any = null;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         // Update our state when observer callback fires
@@ -19,10 +21,11 @@ function useOnScreen(
     );
     if (ref.current) {
       observer.observe(ref.current);
+      observerRefValue = ref.current;
     }
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (observerRefValue) {
+        observer.unobserve(observerRefValue);
       }
     };
   }, [ref, rootMargin]); // Empty array ensures that effect is only run on mount and unmount
