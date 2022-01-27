@@ -115,7 +115,7 @@ h5 {
     #26b3ff17 50%,
     transparent 100%
   );
-  animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: load $animation infinite;
 }
 
 .containerLoaded::before {

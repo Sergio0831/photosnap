@@ -1,13 +1,13 @@
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import useOnScreen from "../hooks/useOnScreen";
-import { StoryType } from "../types/Story.types";
+import { StoryTypes } from "../types/Story.types";
 import ArrowLink from "./ArrowLink";
 import Button from "./Button";
 import classes from "./Story.module.scss";
 
 type StoryProps = {
-  story: StoryType;
+  story: StoryTypes;
   onLoad?(): void;
 };
 

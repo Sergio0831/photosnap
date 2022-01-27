@@ -1,4 +1,4 @@
-export type StoryType = {
+export type StoryTypes = {
   id: string;
   date: string;
   title: string;

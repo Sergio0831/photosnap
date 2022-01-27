@@ -1,4 +1,4 @@
-export type SectionType = {
+export type SectionTypes = {
   heading: string;
   text: string;
   theme: string;

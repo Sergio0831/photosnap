@@ -1,6 +1,6 @@
-import { StoryType } from "../types/Story.types";
+import { StoryTypes } from "../types/Story.types";
 
-export const stories: StoryType[] = [
+export const stories: StoryTypes[] = [
   {
     id: "s1",
     date: "April 16th 2021",
