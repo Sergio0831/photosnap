@@ -12,12 +12,13 @@
   padding: $padding-base * 3.2 $padding-base * 4;
   opacity: 0;
   visibility: hidden;
-  z-index: -1;
-  transition: opacity $transition, visibility $transition, z-index $transition;
+  transform: scale(0.5);
+  transition: opacity $transition, visibility $transition, transform $transition;
 
   &.open {
     opacity: 1;
     visibility: visible;
+    transform: scale(1);
     z-index: 1;
   }
 
@@ -29,7 +30,6 @@
     padding: 0;
     opacity: 1;
     visibility: visible;
-    z-index: 1;
   }
 
   ul {

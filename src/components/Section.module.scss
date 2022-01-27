@@ -84,11 +84,12 @@
       position: unset;
       display: $d-block;
       width: $width-base;
-      height: $height-base;
+      height: 30rem;
       object-fit: cover;
 
       @include mobile {
         position: $p-absolute;
+        height: $height-base;
       }
     }
   }

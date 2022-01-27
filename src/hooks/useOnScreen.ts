@@ -8,11 +8,10 @@ function useOnScreen(
   const [isIntersecting, setIntersecting] = useState(false);
 
   useEffect(() => {
-    let observerRefValue: any = null;
+    let observerRefValue: HTMLElement | null = null;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Update our state when observer callback fires
         setIntersecting(entry.isIntersecting);
       },
       {
@@ -28,7 +27,7 @@ function useOnScreen(
         observer.unobserve(observerRefValue);
       }
     };
-  }, [ref, rootMargin]); // Empty array ensures that effect is only run on mount and unmount
+  }, [ref, rootMargin]);
 
   return isIntersecting;
 }
