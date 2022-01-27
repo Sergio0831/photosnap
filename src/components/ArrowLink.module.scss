@@ -1,0 +1,11 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.btn__container {
+  @include flex($align-items: $align-center);
+
+  svg {
+    height: 1.2rem;
+    width: 4.2rem;
+  }
+}

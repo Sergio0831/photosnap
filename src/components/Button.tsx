@@ -13,7 +13,7 @@ type ButtonProps = {
 const Button = ({ type, className, link, children, onClick }: ButtonProps) => {
   if (link) {
     return (
-      <Link to={link} onClick={onClick}>
+      <Link to={link} onClick={onClick} className={className}>
         {children}
       </Link>
     );

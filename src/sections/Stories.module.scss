@@ -1,0 +1,8 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+@use "../styles/breakpoints" as *;
+
+.stories {
+  display: $d-grid;
+  grid-template-columns: repeat(auto-fit, minmax(36rem, 1fr));
+}

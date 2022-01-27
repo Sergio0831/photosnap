@@ -1,9 +1,12 @@
-export const homeSections = [
+import { SectionType } from "../types/Section.types";
+
+export const homeSections: SectionType[] = [
   {
     heading: "Create and share your photo stories.",
     text: "Photosnap is a platform for photographers and visual storytellers. We make it easy to share photos, tell stories and connect with others.",
     theme: "dark",
     btnText: "get an invite",
+    link: "/prices",
     alt: "create-and-share",
     mobileWebp: "../assets/home/mobile/create-and-share.webp",
     tabletWebp: "../assets/home/tablet/create-and-share.webp",
@@ -17,6 +20,7 @@ export const homeSections = [
     text: "We provide design templates to ensure your stories look terrific. Easily add photos, text, embed maps and media from other networks. Then share your story with everyone.",
     theme: "light",
     btnText: "view the stories",
+    link: "/stories",
     alt: "beautiful-stories",
     mobileWebp: "../assets/home/mobile/beautiful-stories.webp",
     tabletWebp: "../assets/home/tablet/beautiful-stories.webp",
@@ -30,6 +34,7 @@ export const homeSections = [
     text: "Photosnap can help you create stories that resonate with your audience.  Our tool is designed for photographers of all levels, brands, businesses you name it. ",
     theme: "light",
     btnText: "view the stories",
+    link: "/stories",
     alt: "designed-for-everyone",
     mobileWebp: "../assets/home/mobile/designed-for-everyone.webp",
     tabletWebp: "../assets/home/tablet/designed-for-everyone.webp",

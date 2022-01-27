@@ -15,7 +15,6 @@
   &__text {
     grid-column: span 12;
     grid-row: 2;
-    padding: $padding-base * 7.2 $padding-base * 3;
 
     @include flex(
       $flex-direction: column,
@@ -25,10 +24,11 @@
 
     .text__container {
       width: $width-base;
+      padding: $padding-base * 7.2 $padding-base * 3;
 
       @include mobile {
         width: $width-base;
-        max-width: 38rem;
+        padding: 0 7vw;
       }
     }
 
@@ -40,20 +40,13 @@
       margin-bottom: $margin-base * 4.8;
     }
 
-    .btn__container {
-      @include flex($align-items: $align-center);
-      column-gap: $gap-base * 1.8;
-
-      svg {
-        height: 1.2rem;
-        width: 4.2rem;
-      }
+    svg {
+      margin-left: $margin-base * 1.8;
     }
 
     @include mobile {
       grid-column: span 8;
       grid-row: 1 / -1;
-      padding: 0 0 0 $padding-base * 3;
     }
 
     @include tablet {
@@ -112,7 +105,7 @@
       &::before {
         content: "";
         position: $p-absolute;
-        top: -7.2rem;
+        top: 0;
         height: 6px;
         width: $width-base / 2;
         background-image: $main-accent;
@@ -121,7 +114,7 @@
           height: $height-base;
           width: 6px;
           top: auto;
-          left: -3rem;
+          left: 0;
         }
       }
     }

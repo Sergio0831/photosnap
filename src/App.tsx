@@ -1,21 +1,25 @@
+import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import Loading from "./components/Loading";
 import Layout from "./layout/Layout";
-import Features from "./pages/Features";
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
-import Pricing from "./pages/Pricing";
-import Stories from "./pages/Stories";
+const NotFound = React.lazy(() => import("./pages/NotFound"));
+const Features = React.lazy(() => import("./pages/Features"));
+const Stories = React.lazy(() => import("./pages/Stories"));
+const Home = React.lazy(() => import("./pages/Home"));
+const Pricing = React.lazy(() => import("./pages/Pricing"));
 
 const App = () => {
   return (
     <Layout>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/stories' element={<Stories />} />
-        <Route path='/features' element={<Features />} />
-        <Route path='/pricing' element={<Pricing />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/stories' element={<Stories />} />
+          <Route path='/features' element={<Features />} />
+          <Route path='/pricing' element={<Pricing />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </Layout>
   );
 };

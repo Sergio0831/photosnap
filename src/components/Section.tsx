@@ -1,76 +1,56 @@
 import clsx from "clsx";
-import Icon from "./Icon";
+import { SectionType } from "../types/Section.types";
+import ArrowLink from "./ArrowLink";
 import classes from "./Section.module.scss";
 
 type SectionProps = {
-  heading: string;
-  text: string;
-  theme: string;
-  btnText: string;
-  mobileWebp: string;
-  tabletWebp: string;
-  desktopWebp: string;
-  mobileAvif: string;
-  tabletAvif: string;
-  desktopAvif: string;
-  alt: string;
+  section: SectionType;
 };
 
-const Section = ({
-  heading,
-  text,
-  theme,
-  btnText,
-  alt,
-  mobileWebp,
-  tabletWebp,
-  desktopWebp,
-  mobileAvif,
-  tabletAvif,
-  desktopAvif
-}: SectionProps) => {
+const Section = ({ section }: SectionProps) => {
   const sectionClasses = clsx({
     [classes.section]: true,
-    [classes.section__dark]: theme === "dark"
+    [classes.section__dark]: section.theme === "dark"
   });
 
   return (
     <section className={sectionClasses}>
       <div className={classes.section__text}>
         <div className={classes.text__container}>
-          <h2>{heading}</h2>
-          <p>{text}</p>
-          <div className={classes.btn__container}>
-            <button className={`btn-outline--${theme}`}>{btnText}</button>
-            <Icon color={theme === "dark" ? "#fff" : "#000"} icon='arrow' />
-          </div>
+          <h2>{section.heading}</h2>
+          <p>{section.text}</p>
+          <ArrowLink
+            link={section.link}
+            theme={section.theme}
+            btnText={section.btnText}
+          />
         </div>
       </div>
       <div className={classes.section__image}>
         <picture>
           <source
             media='(min-width: 48em)'
-            srcSet={`${desktopAvif}`}
+            srcSet={`${section.desktopAvif}`}
             type='image/avif'
           />
           <source
             media='(min-width: 35em)'
-            srcSet={`${tabletAvif}`}
+            srcSet={`${section.tabletAvif}`}
             type='image/avif'
           />
-          <source srcSet={`${mobileAvif}`} type='image/avif' />
+          <source srcSet={`${section.mobileAvif}`} type='image/avif' />
           <source
             media='(min-width: 48em)'
-            srcSet={`${desktopWebp}`}
+            srcSet={`${section.desktopWebp}`}
             type='image/webp'
           />
           <source
             media='(min-width: 35em)'
-            srcSet={`${tabletWebp}`}
+            srcSet={`${section.tabletWebp}`}
             type='image/webp'
           />
-          <source srcSet={`${mobileWebp}`} type='image/webp' />
-          <img src={desktopWebp} alt={alt} />
+          <source srcSet={`${section.mobileWebp}`} type='image/webp' />
+          <img src={section.desktopWebp} alt={section.alt} />
         </picture>
       </div>
     </section>

@@ -1,0 +1,85 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+@use "../styles/breakpoints" as *;
+
+.story {
+  position: $p-relative;
+  transition: transform $transition;
+
+  &__img {
+    img {
+      width: $width-base;
+      object-fit: cover;
+      display: $d-block;
+      opacity: 0;
+      transition: opacity $transition;
+    }
+  }
+
+  .imageLoaded {
+    opacity: 1;
+  }
+
+  &__link {
+    @include position($position: $p-absolute);
+    @include wh;
+    z-index: 2;
+  }
+
+  &__overlay {
+    background: linear-gradient(
+      rgba($color-black, 0.1),
+      rgba($color-black, 0.6)
+    );
+    padding: 0 $padding-base * 4 $padding-base * 4;
+
+    @include flex($align-items: flex-end);
+    @include wh;
+    @include position($position: $p-absolute, $top: 0, $left: 0);
+  }
+
+  &__text {
+    color: $color-white;
+    width: $width-base;
+
+    h4 {
+      margin-bottom: 4px;
+    }
+
+    h5 {
+      margin-bottom: $margin-base * 1.6;
+    }
+
+    svg {
+      margin-left: auto;
+    }
+  }
+
+  &__line {
+    width: $width-base;
+    height: 1px;
+    background-color: $color-dark-grey;
+    margin-bottom: $margin-base * 2;
+  }
+
+  &::after {
+    content: "";
+    @include position($position: $p-absolute, $bottom: 0, $right: 0);
+    height: 6px;
+    width: 0;
+    background-image: $main-accent;
+    transition: all $transition;
+  }
+
+  @include hover {
+    &:hover {
+      transform: translateY(-2.4rem);
+
+      &::after {
+        left: 0;
+        right: auto;
+        width: $width-base;
+      }
+    }
+  }
+}
