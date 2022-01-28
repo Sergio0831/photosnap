@@ -1,0 +1,16 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+@use "../styles/breakpoints" as *;
+
+.feature {
+  @include flex($flex-direction: column, $align-items: $align-center);
+  text-align: $align-center;
+
+  &__icon {
+    margin-bottom: $margin-base * 4.8;
+  }
+
+  h4 {
+    margin-bottom: $margin-base * 1.6;
+  }
+}

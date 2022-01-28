@@ -1,0 +1,22 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+@use "../styles/breakpoints" as *;
+
+.features {
+  display: $d-grid;
+  grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
+  justify-content: $justify-center;
+  column-gap: $gap-base * 3;
+  row-gap: $gap-base * 5.6;
+  padding-top: $padding-base * 12;
+  padding-bottom: $padding-base * 12;
+
+  @include mobile {
+    row-gap: $gap-base * 10;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+  }
+
+  @include tablet {
+    row-gap: $gap-base * 8;
+  }
+}

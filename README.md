@@ -1,3 +1,3 @@
 ## Photosnap multipage website
 
-![Screenshot](./src/assets/preview.jpg)
+![Screenshot](./assets/preview.jpg)
