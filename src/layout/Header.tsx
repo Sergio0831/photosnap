@@ -19,7 +19,7 @@ const Header = () => {
       <div className={classes.container}>
         <Link to='/' className={classes.logo} onClick={closeNavBar}>
           <Logo />
-        </Link>
+        </Link>{" "}
         <Button
           type='button'
           className={menuBtnClasses}

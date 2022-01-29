@@ -1,0 +1,28 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+@use "../styles/breakpoints" as *;
+
+.navlist {
+  a {
+    text-transform: uppercase;
+    letter-spacing: $ls-base * 1.5;
+    transition: color $transition;
+
+    @include font($font-weight: $fw-bold, $font-size: $fs-small);
+
+    &:hover,
+    &:active {
+      color: $color-grey;
+    }
+
+    @include tablet {
+      letter-spacing: $ls-base;
+
+      @include font($font-weight: $fw-regular, $font-size: $fs-xs);
+    }
+  }
+
+  .activeLink {
+    color: $color-grey;
+  }
+}

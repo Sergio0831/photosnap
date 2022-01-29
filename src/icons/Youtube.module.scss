@@ -1,0 +1,9 @@
+@use "../styles/variables" as *;
+
+.youtube:hover stop:first-child {
+  stop-color: $color-dark-rose;
+}
+
+.youtube:hover stop:last-child {
+  stop-color: $color-dark-orange;
+}

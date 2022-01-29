@@ -1,0 +1,9 @@
+@use "../styles/variables" as *;
+
+.facebook:hover stop:first-child {
+  stop-color: $color-light-blue;
+}
+
+.facebook:hover stop:last-child {
+  stop-color: $color-dark-blue;
+}

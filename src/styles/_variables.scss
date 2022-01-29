@@ -1,12 +1,13 @@
 // Colors
 
-$main-accent: linear-gradient(45deg, #ffc593 0%, #bc7198 50%, #5a77ff 100%);
 $color-blue: #5a77ff;
 $color-light-blue: #63afdb;
 $color-dark-blue: #6028f1;
 $color-electric-blue: #65ffeb;
+$battery-charged-blue: #1ebee0;
 $color-teal-blue: #27718a;
 $color-purple: #bc7198;
+$color-violet: #952491;
 $color-orange: #ffc593;
 $color-dark-orange: #ff5a5a;
 $color-topaz: #f6c683;
@@ -17,6 +18,12 @@ $color-white: #fff;
 $color-grey: #b3b3b3;
 $color-light-grey: #dfdfdf;
 $color-dark-grey: #979797;
+$main-accent: linear-gradient(
+  26.57deg,
+  $color-orange 0%,
+  $color-purple 43.29%,
+  $color-blue 83.33%
+);
 
 // Font
 $font-primary: "DM Sans", sans-serif;
@@ -32,6 +39,8 @@ $fs-xs: 1.2rem;
 
 // Flex
 $align-center: center;
+$align-start: flex-start;
+$align-end: flex-end;
 $justify-center: center;
 $justify-between: space-between;
 $justify-end: end;
@@ -62,3 +71,6 @@ $ls-base: 2px;
 // Animation
 $transition: 0.25s ease-out;
 $animation: 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Opacity
+$text-opacity: 0.6;

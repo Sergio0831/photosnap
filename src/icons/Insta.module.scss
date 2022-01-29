@@ -1,0 +1,13 @@
+@use "../styles/variables" as *;
+
+.insta:hover stop:first-child {
+  stop-color: $color-orange;
+}
+
+.insta:hover stop:nth-child(2) {
+  stop-color: $color-purple;
+}
+
+.insta:hover stop:last-child {
+  stop-color: $color-blue;
+}

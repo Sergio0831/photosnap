@@ -1,0 +1,78 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+@use "../styles/breakpoints" as *;
+
+.footer {
+  padding: $padding-base * 6.4 0;
+  background-color: $color-black;
+  color: $color-white;
+
+  &__wrapper {
+    @include flex($flex-direction: column, $align-items: $align-center);
+    row-gap: $gap-base * 12;
+
+    @include mobile {
+      @include flex(
+        $flex-direction: row,
+        $justify-content: $justify-between,
+        $align-items: unset
+      );
+    }
+  }
+
+  &__left {
+    @include flex($flex-direction: column, $align-items: $align-center);
+  }
+
+  &__navlist {
+    text-align: $align-center;
+    margin-bottom: 0;
+
+    @include mobile {
+      margin-bottom: 0;
+    }
+
+    a {
+      font-size: $fs-xs;
+    }
+  }
+
+  &__socials {
+    @include flex($align-items: $align-center);
+    column-gap: $gap-base * 1.3;
+
+    stop {
+      transition: $transition;
+    }
+
+    a {
+      @include flex();
+      transition: all $transition;
+
+      i {
+        transition: all $transition;
+      }
+    }
+  }
+
+  &__right {
+    @include flex($flex-direction: column, $align-items: $align-center);
+    row-gap: $gap-base * 3.4;
+
+    svg {
+      margin-left: $margin-base * 1.6;
+    }
+
+    @include mobile {
+      @include flex(
+        $flex-direction: column,
+        $justify-content: $justify-between,
+        $align-items: $align-end
+      );
+    }
+  }
+
+  &__copy {
+    opacity: $text-opacity;
+  }
+}
