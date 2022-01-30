@@ -1,5 +1,3 @@
-import classes from "./StoriesHero.module.scss";
-
 const StoriesHero = () => {
   return (
     <>
