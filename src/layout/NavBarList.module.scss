@@ -8,7 +8,7 @@
     letter-spacing: $ls-base * 1.5;
     transition: color $transition;
 
-    @include font($font-weight: $fw-bold, $font-size: $fs-small);
+    @include font($font-weight: $fw-bold);
 
     &:hover,
     &:active {
@@ -18,7 +18,7 @@
     @include tablet {
       letter-spacing: $ls-base;
 
-      @include font($font-weight: $fw-regular, $font-size: $fs-xs);
+      @include font($font-weight: $fw-bold, $font-size: $fs-xs);
     }
   }
 

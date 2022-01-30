@@ -109,7 +109,7 @@
         position: $p-absolute;
         top: 0;
         height: 6px;
-        width: $width-base / 2;
+        width: $width-base / 3;
         background-image: $main-accent;
         animation: right $animation;
 
@@ -160,6 +160,6 @@
     width: 0;
   }
   to {
-    width: $width-base / 2;
+    width: $width-base / 3;
   }
 }

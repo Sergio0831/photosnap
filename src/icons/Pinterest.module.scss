@@ -1,9 +1,9 @@
 @use "../styles/variables" as *;
 
 .pinterest:hover stop:first-child {
-  stop-color: $battery-charged-blue;
+  stop-color: $color-topaz;
 }
 
 .pinterest:hover stop:last-child {
-  stop-color: $color-violet;
+  stop-color: $color-red;
 }

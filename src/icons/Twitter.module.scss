@@ -1,9 +1,9 @@
 @use "../styles/variables" as *;
 
 .twitter:hover stop:first-child {
-  stop-color: $color-topaz;
+  stop-color: $color-electric-blue;
 }
 
 .twitter:hover stop:last-child {
-  stop-color: $color-red;
+  stop-color: $color-teal-blue;
 }
