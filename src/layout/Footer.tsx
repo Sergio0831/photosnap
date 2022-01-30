@@ -5,7 +5,6 @@ import Logo from "../components/Logo";
 import { socials } from "../data/socials";
 import classes from "./Footer.module.scss";
 import NavbarList from "./NavbarList";
-import Facebook from "../icons/Facebook";
 
 const Footer = () => {
   return (

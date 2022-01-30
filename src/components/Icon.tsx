@@ -1,4 +1,3 @@
-import { CSSProperties } from "react";
 import IcoMoon from "react-icomoon";
 import iconSet from "../icons/selection.json";
 
