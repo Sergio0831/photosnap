@@ -66,6 +66,7 @@ const Story = ({ story, onLoad = () => {} }: StoryProps) => {
           />
           {(isVisible || isLoaded) && (
             <img
+              loading='lazy'
               ref={imageRef}
               className={imageClasses}
               src={story.desktopWebp}

@@ -5,12 +5,17 @@
 .story {
   position: $p-relative;
   transition: transform $transition;
+  height: 37.5rem;
+
+  @include mobile {
+    height: 50rem;
+  }
 
   &__img {
-    
+    height: $height-base;
 
     img {
-      width: $width-base;
+      @include wh;
       object-fit: cover;
       display: $d-block;
       opacity: 0;

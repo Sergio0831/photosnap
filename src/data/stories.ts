@@ -68,7 +68,7 @@ export const stories: StoryTypes[] = [
     alt: "unforeseen-corners"
   },
   {
-    id: "s6",
+    id: "s7",
     date: "March 29th 2021",
     title: "King on Africa: Part II",
     author: "Tim Hillenburg",
@@ -79,7 +79,7 @@ export const stories: StoryTypes[] = [
     alt: "king-on-africa"
   },
   {
-    id: "s7",
+    id: "s8",
     date: "March 21st 2021",
     title: "The Trip to Nowhere",
     author: "Felicia Rourke",
@@ -90,7 +90,7 @@ export const stories: StoryTypes[] = [
     alt: "trip-to-nowhere"
   },
   {
-    id: "s8",
+    id: "s9",
     date: "March 19th 2021",
     title: "Rage of The Sea",
     author: "Mohammed Abdul",
@@ -101,7 +101,7 @@ export const stories: StoryTypes[] = [
     alt: "rage-of-the-sea"
   },
   {
-    id: "s9",
+    id: "s10",
     date: "March 16th 2021",
     title: "Running Free",
     author: "Michelle",
@@ -112,7 +112,7 @@ export const stories: StoryTypes[] = [
     alt: "running-free"
   },
   {
-    id: "s10",
+    id: "s11",
     date: "March 11th 2021",
     title: "Behind the Wafes",
     author: "Lamarr Wilson",
@@ -123,7 +123,7 @@ export const stories: StoryTypes[] = [
     alt: "behind-the-waves"
   },
   {
-    id: "s11",
+    id: "s12",
     date: "March 9 th 2021",
     title: "Calm Waters",
     author: "Samantha Brooke",
@@ -134,7 +134,7 @@ export const stories: StoryTypes[] = [
     alt: "calm-waters"
   },
   {
-    id: "s12",
+    id: "s13",
     date: "March 5th 2021",
     title: "The Milky Way",
     author: "Benjamin Cruz",
@@ -145,7 +145,7 @@ export const stories: StoryTypes[] = [
     alt: "milky-way"
   },
   {
-    id: "s13",
+    id: "s14",
     date: "March 4th 2021",
     title: "Night at The Dark Forest",
     author: "Mohammed Abdul",
@@ -156,7 +156,7 @@ export const stories: StoryTypes[] = [
     alt: "dark-forest"
   },
   {
-    id: "s14",
+    id: "s15",
     date: "March 1st 2021",
     title: "Somewarpet's Beauty",
     author: "Michelle",
@@ -167,7 +167,7 @@ export const stories: StoryTypes[] = [
     alt: "somwarpet"
   },
   {
-    id: "s15",
+    id: "s16",
     date: "March 25th 2021",
     title: "Land of Dreams",
     author: "William Malcom",

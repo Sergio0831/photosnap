@@ -50,7 +50,7 @@ const Section = ({ section }: SectionProps) => {
             type='image/webp'
           />
           <source srcSet={`${section.mobileWebp}`} type='image/webp' />
-          <img src={section.desktopWebp} alt={section.alt} />
+          <img loading='lazy' src={section.desktopWebp} alt={section.alt} />
         </picture>
       </div>
     </section>
