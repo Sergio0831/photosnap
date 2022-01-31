@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
 import useOnScreen from "../hooks/useOnScreen";
 import { StoryTypes } from "../types/Story.types";
 import ArrowLink from "./ArrowLink";
@@ -8,14 +9,17 @@ import classes from "./Story.module.scss";
 
 type StoryProps = {
   story: StoryTypes;
+  pathname?: string;
   onLoad?(): void;
 };
 
-const Story = ({ story, onLoad = () => {} }: StoryProps) => {
+const Story = ({ story, pathname, onLoad = () => {} }: StoryProps) => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const imageRef = useRef<HTMLImageElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const isVisible = useOnScreen(containerRef);
+  const params = useParams();
+  console.log(params);
 
   const articleClasses = clsx({
     [classes.story]: true,
@@ -77,6 +81,7 @@ const Story = ({ story, onLoad = () => {} }: StoryProps) => {
       </div>
       <div className={classes.story__overlay}>
         <div className={classes.story__text}>
+          {pathname !== "/" && <h5>{story.date}</h5>}
           <h4>{story.title}</h4>
           <h5>by {story.author}</h5>
           <div className={classes.story__line}></div>

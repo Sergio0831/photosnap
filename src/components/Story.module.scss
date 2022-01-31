@@ -50,11 +50,10 @@
     width: $width-base;
 
     h4 {
-      margin-bottom: 4px;
+      margin: 4px 0;
     }
 
     h5 {
-      margin-bottom: $margin-base * 1.6;
     }
 
     svg {
@@ -66,7 +65,7 @@
     width: $width-base;
     height: 1px;
     background-color: $color-dark-grey;
-    margin-bottom: $margin-base * 2;
+    margin: $margin-base * 1.6 0 $margin-base * 2;
   }
 
   &::after {

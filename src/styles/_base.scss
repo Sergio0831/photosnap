@@ -75,12 +75,26 @@ h4 {
 
 h5 {
   @include font(
+    $font-weight: $fw-regular,
+    $font-size: 1.3rem,
+    $line-height: 1.7rem
+  );
+}
+
+h6 {
+  @include font(
     $font-weight: $fw-bold,
     $font-size: $fs-xs,
     $line-height: 1.6rem
   );
 
   letter-spacing: $ls-base;
+}
+
+img {
+  @include wh;
+  display: $d-block;
+  object-fit: cover;
 }
 
 .section-center {

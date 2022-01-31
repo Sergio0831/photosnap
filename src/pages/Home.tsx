@@ -6,10 +6,14 @@ import { homeSections } from "../data/home-sections";
 import { stories } from "../data/stories";
 import { features } from "../data/features";
 import Feature from "../components/Feature";
+import { useLocation } from "react-router-dom";
 const Stories = React.lazy(() => import("../sections/Stories"));
 const Features = React.lazy(() => import("../sections/Features"));
 
 const Home = () => {
+  const { pathname } = useLocation();
+  console.log(pathname);
+
   return (
     <>
       <GenericList
@@ -20,7 +24,9 @@ const Home = () => {
       />
       <Stories>
         {stories
-          .map((story) => <Story key={story.id} story={story} />)
+          .map((story) => (
+            <Story key={story.id} story={story} pathname={pathname} />
+          ))
           .slice(0, 4)}
       </Stories>
       <Features>
