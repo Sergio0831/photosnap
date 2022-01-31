@@ -12,7 +12,6 @@ const Features = React.lazy(() => import("../sections/Features"));
 
 const Home = () => {
   const { pathname } = useLocation();
-  console.log(pathname);
 
   return (
     <>

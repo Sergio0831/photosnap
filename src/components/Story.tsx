@@ -1,25 +1,21 @@
 import clsx from "clsx";
-import { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useRef, useState } from "react";
 import useOnScreen from "../hooks/useOnScreen";
 import { StoryTypes } from "../types/Story.types";
 import ArrowLink from "./ArrowLink";
 import Button from "./Button";
+import LazyImage from "./LazyImage";
 import classes from "./Story.module.scss";
 
 type StoryProps = {
   story: StoryTypes;
   pathname?: string;
-  onLoad?(): void;
 };
 
-const Story = ({ story, pathname, onLoad = () => {} }: StoryProps) => {
+const Story = ({ story, pathname }: StoryProps) => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const imageRef = useRef<HTMLImageElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const isVisible = useOnScreen(containerRef);
-  const params = useParams();
-  console.log(params);
 
   const articleClasses = clsx({
     [classes.story]: true,
@@ -27,57 +23,20 @@ const Story = ({ story, pathname, onLoad = () => {} }: StoryProps) => {
     containerLoaded: isLoaded
   });
 
-  const imageClasses = clsx({
-    [classes.imageLoaded]: isLoaded
-  });
-
-  useEffect(() => {
-    if (!isVisible || isLoaded) {
-      return;
-    }
-    if (imageRef.current) {
-      imageRef.current.onload = () => {
-        setIsLoaded(true);
-        onLoad();
-      };
-    }
-  }, [isVisible, onLoad, isLoaded]);
-
   return (
     <article ref={containerRef} className={articleClasses}>
       <Button link={`/stories/${story.id}`} className={classes.story__link} />
       <div className={classes.story__img}>
-        <picture>
-          <source
-            media='(min-width: 35em)'
-            srcSet={`${story.desktopAvif}`}
-            type='image/avif'
-          />
-          <source
-            media='(max-width: 559px)'
-            srcSet={`${story.mobileAvif}`}
-            type='image/avif'
-          />
-          <source
-            media='(min-width: 35em)'
-            srcSet={`${story.desktopWebp}`}
-            type='image/webp'
-          />
-          <source
-            media='(max-width: 559px)'
-            srcSet={`${story.mobileWebp}`}
-            type='image/webp'
-          />
-          {(isVisible || isLoaded) && (
-            <img
-              loading='lazy'
-              ref={imageRef}
-              className={imageClasses}
-              src={story.desktopWebp}
-              alt={story.alt}
-            />
-          )}
-        </picture>
+        <LazyImage
+          isVisible={isVisible}
+          isLoaded={isLoaded}
+          setIsLoaded={setIsLoaded}
+          desktopAvif={story.desktopAvif}
+          mobileAvif={story.mobileAvif}
+          desktopWebp={story.desktopWebp}
+          mobileWebp={story.mobileWebp}
+          alt={story.alt}
+        />
       </div>
       <div className={classes.story__overlay}>
         <div className={classes.story__text}>

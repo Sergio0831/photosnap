@@ -38,13 +38,13 @@ const StoriesHero = () => {
             <img
               loading='lazy'
               src='../assets/stories/desktop/moon-of-appalacia.webp'
-              alt='Hero Image'
+              alt='Stories Hero'
             />
           </picture>
         </div>
         <div className={classes.hero__text}>
-          <h6>LAST MONTH’S FEATURED STORY</h6>
-          <h2>HAZY FULL MOON OF APPALACHIA</h2>
+          <h6>last month's featured story</h6>
+          <h2>hazzy full moon of appalachia</h2>
           <h5>
             <span>March 2nd 2020</span>
             by John Appleseed

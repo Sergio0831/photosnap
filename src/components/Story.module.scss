@@ -13,18 +13,6 @@
 
   &__img {
     height: $height-base;
-
-    img {
-      @include wh;
-      object-fit: cover;
-      display: $d-block;
-      opacity: 0;
-      transition: opacity $transition;
-    }
-  }
-
-  .imageLoaded {
-    opacity: 1;
   }
 
   &__link {
@@ -51,9 +39,6 @@
 
     h4 {
       margin: 4px 0;
-    }
-
-    h5 {
     }
 
     svg {

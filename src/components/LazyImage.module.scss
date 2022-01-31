@@ -1,0 +1,10 @@
+@use "../styles/variables" as *;
+
+.img {
+  opacity: 0;
+  transition: opacity $transition;
+}
+
+.imageLoaded {
+  opacity: 1;
+}
