@@ -1,3 +1,62 @@
 @use "../styles/variables" as *;
 @use "../styles/mixins" as *;
 @use "../styles/breakpoints" as *;
+
+.banner {
+  height: 28rem;
+  display: $d-grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: $align-center;
+  position: $p-relative;
+
+  &::before {
+    content: "";
+    position: $p-absolute;
+    top: 0;
+    left: 4rem;
+    height: 6px;
+    width: $width-base / 3;
+    background-image: $main-accent;
+    z-index: 1;
+
+    @include mobile {
+      height: $height-base;
+      width: 6px;
+      top: auto;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  &__content {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+    color: $color-white;
+
+    @include flex($flex-direction: column, $justify-content: $justify-center);
+    row-gap: $gap-base * 2.4;
+
+    @include tablet {
+      @include flex($flex-direction: row, $justify-content: $justify-between);
+    }
+
+    h2 {
+      width: 31rem;
+
+      @include mobile {
+        width: 40rem;
+      }
+    }
+
+    svg {
+      margin-left: $margin-base * 1.6;
+    }
+  }
+
+  &__image {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}

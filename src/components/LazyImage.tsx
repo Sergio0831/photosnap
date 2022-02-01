@@ -1,20 +1,7 @@
 import clsx from "clsx";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
+import { LazyImageType } from "../types/LazyImage.types";
 import classes from "./LazyImage.module.scss";
-
-type LazyImageProps = {
-  isVisible: boolean;
-  isLoaded: boolean;
-  setIsLoaded: (val: boolean) => void;
-  onLoad?(): void;
-  desktopAvif: string;
-  tabletAvif?: string;
-  mobileAvif: string;
-  desktopWebp: string;
-  tabletWebp?: string;
-  mobileWebp: string;
-  alt: string;
-};
 
 const LazyImage = ({
   isVisible,
@@ -28,7 +15,7 @@ const LazyImage = ({
   tabletWebp,
   mobileWebp,
   alt
-}: LazyImageProps) => {
+}: LazyImageType) => {
   const imageRef = useRef<HTMLImageElement | null>(null);
 
   const imageClasses = clsx({
@@ -36,7 +23,7 @@ const LazyImage = ({
     [classes.imageLoaded]: isLoaded
   });
 
-  useEffect(() => {
+  const loadImage = useCallback(() => {
     if (!isVisible || isLoaded) {
       return;
     }
@@ -46,7 +33,11 @@ const LazyImage = ({
         onLoad();
       };
     }
-  }, [isVisible, onLoad, isLoaded]);
+  }, [isVisible, onLoad, isLoaded, setIsLoaded]);
+
+  useEffect(() => {
+    loadImage();
+  }, [loadImage]);
 
   return (
     <picture>

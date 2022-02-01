@@ -19,4 +19,22 @@
   @include tablet {
     row-gap: $gap-base * 8;
   }
+
+  &__page {
+    padding-top: $padding-base * 6.4;
+    padding-bottom: $padding-base * 6.4;
+    row-gap: $gap-base * 5.6;
+
+    @include mobile {
+      padding-top: $padding-base * 11;
+      padding-bottom: $padding-base * 11;
+      row-gap: $gap-base * 7;
+    }
+
+    @include tablet {
+      row-gap: $gap-base * 10;
+      padding-top: $padding-base * 16;
+      padding-bottom: $padding-base * 16;
+    }
+  }
 }

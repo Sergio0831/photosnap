@@ -17,7 +17,12 @@ const Header = () => {
   return (
     <header className={`${classes.header} section-center`}>
       <div className={classes.container}>
-        <Link to='/' className={classes.logo} onClick={closeNavBar}>
+        <Link
+          to='/'
+          className={classes.logo}
+          onClick={closeNavBar}
+          aria-label='Logo'
+        >
           <Logo />
         </Link>{" "}
         <Button

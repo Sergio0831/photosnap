@@ -132,6 +132,15 @@
       }
     }
   }
+
+  &__hero,
+  &__hero:first-child {
+    height: 49rem;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
 }
 
 @keyframes up {

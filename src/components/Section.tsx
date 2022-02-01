@@ -1,57 +1,70 @@
 import clsx from "clsx";
+import { useRef, useState } from "react";
+import useOnScreen from "../hooks/useOnScreen";
 import { SectionTypes } from "../types/Section.types";
 import ArrowLink from "./ArrowLink";
+import LazyImage from "./LazyImage";
 import classes from "./Section.module.scss";
 
-type SectionProps = {
-  section: SectionTypes;
-};
+const Section = ({
+  heading,
+  text,
+  link,
+  theme,
+  btnText,
+  desktopWebp,
+  desktopAvif,
+  tabletWebp,
+  tabletAvif,
+  mobileAvif,
+  mobileWebp,
+  alt,
+  home
+}: SectionTypes) => {
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const isVisible = useOnScreen(containerRef);
 
-const Section = ({ section }: SectionProps) => {
+  const imageClasses = clsx({
+    [classes.section__image]: true,
+    container: true,
+    containerLoaded: isLoaded
+  });
+
   const sectionClasses = clsx({
     [classes.section]: true,
-    [classes.section__dark]: section.theme === "dark"
+    [classes.section__dark]: theme === "dark",
+    [classes.section__hero]: !home
   });
 
   return (
     <section className={sectionClasses}>
       <div className={classes.section__text}>
         <div className={classes.text__container}>
-          <h2>{section.heading}</h2>
-          <p>{section.text}</p>
-          <ArrowLink
-            link={section.link}
-            theme={section.theme}
-            btnText={section.btnText}
-          />
+          <h2>{heading}</h2>
+          <p>{text}</p>
+          {home && (
+            <ArrowLink
+              link={link as string}
+              theme={theme}
+              btnText={btnText as string}
+            />
+          )}
         </div>
       </div>
-      <div className={classes.section__image}>
-        <picture>
-          <source
-            media='(min-width: 48em)'
-            srcSet={`${section.desktopAvif}`}
-            type='image/avif'
-          />
-          <source
-            media='(min-width: 35em)'
-            srcSet={`${section.tabletAvif}`}
-            type='image/avif'
-          />
-          <source srcSet={`${section.mobileAvif}`} type='image/avif' />
-          <source
-            media='(min-width: 48em)'
-            srcSet={`${section.desktopWebp}`}
-            type='image/webp'
-          />
-          <source
-            media='(min-width: 35em)'
-            srcSet={`${section.tabletWebp}`}
-            type='image/webp'
-          />
-          <source srcSet={`${section.mobileWebp}`} type='image/webp' />
-          <img loading='lazy' src={section.desktopWebp} alt={section.alt} />
-        </picture>
+      <div className={imageClasses} ref={containerRef}>
+        <LazyImage
+          isVisible={isVisible}
+          isLoaded={isLoaded}
+          setIsLoaded={setIsLoaded}
+          desktopWebp={desktopWebp}
+          desktopAvif={desktopAvif}
+          tabletWebp={tabletWebp}
+          tabletAvif={tabletAvif}
+          mobileAvif={mobileAvif}
+          mobileWebp={mobileWebp}
+          alt={alt}
+        />
       </div>
     </section>
   );

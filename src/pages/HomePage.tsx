@@ -10,7 +10,7 @@ import { useLocation } from "react-router-dom";
 const Stories = React.lazy(() => import("../sections/Stories"));
 const Features = React.lazy(() => import("../sections/Features"));
 
-const Home = () => {
+const HomePage = () => {
   const { pathname } = useLocation();
 
   return (
@@ -18,7 +18,7 @@ const Home = () => {
       <GenericList
         items={homeSections}
         renderItem={(section) => (
-          <Section key={section.alt} section={section} />
+          <Section key={section.alt} {...section} home />
         )}
       />
       <Stories>
@@ -28,7 +28,7 @@ const Home = () => {
           ))
           .slice(0, 4)}
       </Stories>
-      <Features>
+      <Features home>
         {features
           .map((feature) => <Feature key={feature.id} feature={feature} />)
           .slice(0, 3)}
@@ -37,4 +37,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

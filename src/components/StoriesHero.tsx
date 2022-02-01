@@ -1,11 +1,37 @@
+import clsx from "clsx";
+import { useRef, useState } from "react";
+import useOnScreen from "../hooks/useOnScreen";
 import ArrowLink from "./ArrowLink";
+import LazyImage from "./LazyImage";
 import classes from "./StoriesHero.module.scss";
 
 const StoriesHero = () => {
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const isVisible = useOnScreen(containerRef);
+
+  const imageClasses = clsx({
+    [classes.hero__image]: true,
+    container: true,
+    containerLoaded: isLoaded
+  });
+
   return (
     <>
       <section className={classes.hero}>
-        <div className={classes.hero__image}>
+        <div className={imageClasses} ref={containerRef}>
+          <LazyImage
+            isVisible={isVisible}
+            isLoaded={isLoaded}
+            setIsLoaded={setIsLoaded}
+            desktopWebp='../assets/stories/desktop/moon-of-appalacia.webp'
+            tabletWebp='../assets/stories/tablet/moon-of-appalacia.webp'
+            mobileWebp='../assets/stories/tablet/moon-of-appalacia.webp'
+            desktopAvif='../assets/stories/desktop/moon-of-appalacia.avif'
+            tabletAvif='../assets/stories/tablet/moon-of-appalacia.avif'
+            mobileAvif='../assets/stories/mobile/moon-of-appalacia.avif'
+            alt='Moon'
+          />
           <picture>
             <source
               media='(min-width: 48em)'

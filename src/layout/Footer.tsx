@@ -11,7 +11,7 @@ const Footer = () => {
     <footer className={classes.footer}>
       <div className={`${classes.footer__wrapper} section-center`}>
         <div className={classes.footer__left}>
-          <Button link='/'>
+          <Button link='/' aria-label='Footer Logo'>
             <Logo footer />
           </Button>
           <NavbarList className={classes.footer__navlist} footer />

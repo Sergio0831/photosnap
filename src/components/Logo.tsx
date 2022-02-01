@@ -4,7 +4,8 @@ type LogoProps = {
 
 const Logo = ({ footer }: LogoProps) => {
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' width='170' height='16'>
+    <svg xmlns='http://www.w3.org/2000/svg' width='170' height='16' role='img'>
+      <title>Logo</title>
       <defs>
         <linearGradient id='a' x1='0%' x2='50%' y1='85.457%' y2='14.543%'>
           <stop offset='0%' stopColor='#FFC593' />
