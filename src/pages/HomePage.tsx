@@ -1,12 +1,13 @@
 import React from "react";
 import GenericList from "../components/GenericList";
-import Section from "../components/Section";
-import Story from "../components/Story";
 import { homeSections } from "../data/home-sections";
 import { stories } from "../data/stories";
 import { features } from "../data/features";
-import Feature from "../components/Feature";
 import { useLocation } from "react-router-dom";
+
+const Section = React.lazy(() => import("../components/Section"));
+const Story = React.lazy(() => import("../components/Story"));
+const Feature = React.lazy(() => import("../components/Feature"));
 const Stories = React.lazy(() => import("../sections/Stories"));
 const Features = React.lazy(() => import("../sections/Features"));
 

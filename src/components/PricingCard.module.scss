@@ -1,0 +1,26 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.card {
+  display: $d-grid;
+  align-content: $align-center;
+  padding: $padding-base * 5.6 $padding-base * 4 $padding-base * 4;
+  background-color: #f5f5f5;
+
+  h3 {
+    text-align: $align-center;
+    text-transform: capitalize;
+  }
+
+  p {
+    margin: $margin-base * 1.8 0 $margin-base * 4;
+    text-align: $align-center;
+    opacity: 0.6;
+  }
+
+  &__popular {
+    background-color: $color-black;
+    color: $color-white;
+    margin: $margin-base * -3.2 0;
+  }
+}

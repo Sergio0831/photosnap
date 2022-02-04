@@ -1,23 +1,16 @@
 import clsx from "clsx";
 import { useRef, useState } from "react";
 import useOnScreen from "../hooks/useOnScreen";
+import { ImageType } from "../types/LazyImage.types";
+import { Link } from "../types/Link.types";
 import ArrowLink from "./ArrowLink";
 import classes from "./Banner.module.scss";
 import LazyImage from "./LazyImage";
 
-type BannerProps = {
-  title: string;
-  link: string;
-  btnText: string;
-  theme: string;
-  desktopWebp: string;
-  desktopAvif: string;
-  tabletWebp: string;
-  tabletAvif: string;
-  mobileAvif: string;
-  mobileWebp: string;
-  alt: string;
-};
+type BannerProps = Link &
+  ImageType & {
+    title: string;
+  };
 
 const Banner = ({
   title,

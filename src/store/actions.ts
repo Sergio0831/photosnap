@@ -1,6 +1,7 @@
 export enum ActionType {
   CloseNavBar,
-  ToggleNavBar
+  ToggleNavBar,
+  ToggleSwitch
 }
 
 export interface CloseNavBar {
@@ -11,4 +12,8 @@ export interface ToggleNavBar {
   type: ActionType.ToggleNavBar;
 }
 
-export type AppActions = CloseNavBar | ToggleNavBar;
+export interface ToggleSwitch {
+  type: ActionType.ToggleSwitch;
+}
+
+export type AppActions = CloseNavBar | ToggleNavBar | ToggleSwitch;

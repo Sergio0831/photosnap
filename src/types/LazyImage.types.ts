@@ -1,8 +1,4 @@
-export type LazyImageType = {
-  isVisible: boolean;
-  isLoaded: boolean;
-  setIsLoaded: (val: boolean) => void;
-  onLoad?(): void;
+export type ImageType = {
   desktopAvif: string;
   tabletAvif?: string;
   mobileAvif: string;
@@ -11,3 +7,10 @@ export type LazyImageType = {
   mobileWebp: string;
   alt: string;
 };
+
+export type LazyImageType = {
+  isVisible: boolean;
+  isLoaded: boolean;
+  setIsLoaded: (val: boolean) => void;
+  onLoad?(): void;
+} & ImageType;

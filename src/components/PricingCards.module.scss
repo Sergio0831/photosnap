@@ -1,0 +1,11 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+@use "../styles/breakpoints" as *;
+
+.cards {
+  display: $d-grid;
+  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+  justify-content: $justify-center;
+  column-gap: $gap-base * 3;
+  row-gap: $gap-base * 2.4;
+}

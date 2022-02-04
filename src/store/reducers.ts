@@ -13,7 +13,12 @@ export const appReducer = (state: AppState, action: AppActions): AppState => {
         ...state,
         isOpen: !state.isOpen
       };
-
+    case ActionType.ToggleSwitch:
+      return {
+        ...state,
+        isOn: !state.isOn,
+        plan: !state.isOn ? "yearly" : "monthly"
+      };
     default:
       return state;
   }

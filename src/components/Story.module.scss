@@ -41,6 +41,11 @@
       margin: 4px 0;
     }
 
+    a {
+      @include flex($justify-content: $justify-between);
+      width: $width-base;
+    }
+
     svg {
       margin-left: auto;
     }

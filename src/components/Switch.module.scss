@@ -1,0 +1,30 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+@use "../styles/breakpoints" as *;
+
+.switch {
+  display: $d-flex;
+  justify-content: $justify-start;
+  width: 6.4rem;
+  height: 3.2rem;
+  border-radius: 1.6rem;
+  background-color: $color-light-grey;
+  cursor: pointer;
+  padding: 4px;
+
+  &__on {
+    background-color: $color-black;
+    justify-content: $justify-end;
+  }
+}
+
+.slider {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: $radius-round;
+  background-color: $color-black;
+
+  &__on {
+    background-color: $color-white;
+  }
+}

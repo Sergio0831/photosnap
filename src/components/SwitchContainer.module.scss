@@ -1,0 +1,16 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.switcher {
+  @include flex($align-items: $align-center, $justify-content: $justify-center);
+  column-gap: $gap-base * 3.2;
+
+  h4 {
+    opacity: 0.5;
+    transition: opacity $transition;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
