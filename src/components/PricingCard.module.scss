@@ -4,6 +4,7 @@
 .card {
   display: $d-grid;
   align-content: $align-center;
+  position: $p-relative;
   padding: $padding-base * 5.6 $padding-base * 4 $padding-base * 4;
   background-color: #f5f5f5;
 
@@ -18,9 +19,27 @@
     opacity: 0.6;
   }
 
+  &__price {
+    text-align: $align-center;
+    margin-bottom: $margin-base * 4;
+
+    span {
+      opacity: 0.6;
+    }
+  }
+
   &__popular {
     background-color: $color-black;
     color: $color-white;
     margin: $margin-base * -3.2 0;
+
+    &::before {
+      content: "";
+      position: $p-absolute;
+      top: 0;
+      height: 6px;
+      width: $width-base;
+      background-image: $main-accent;
+    }
   }
 }
