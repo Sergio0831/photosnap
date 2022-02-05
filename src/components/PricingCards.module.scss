@@ -4,8 +4,12 @@
 
 .cards {
   display: $d-grid;
-  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
-  justify-content: $justify-center;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   column-gap: $gap-base * 3;
   row-gap: $gap-base * 2.4;
+  justify-content: $justify-center;
+
+  @include between {
+    grid-template-columns: 1fr;
+  }
 }

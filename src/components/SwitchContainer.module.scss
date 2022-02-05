@@ -1,9 +1,15 @@
 @use "../styles/variables" as *;
 @use "../styles/mixins" as *;
+@use "../styles/breakpoints" as *;
 
 .switcher {
   @include flex($align-items: $align-center, $justify-content: $justify-center);
   column-gap: $gap-base * 3.2;
+  margin-bottom: $margin-base * 4;
+
+  @include tablet {
+    margin-bottom: $margin-base * 7.8;
+  }
 
   h4 {
     opacity: 0.5;
