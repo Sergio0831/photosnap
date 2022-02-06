@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import Button from "../components/Button";
 import { useAppContext } from "../store/context";
-import classes from "./NavBar.module.scss";
 import NavbarList from "./NavbarList";
+import classes from "./NavBar.module.scss";
 
 const NavBar = () => {
   const { isOpen, closeNavBar } = useAppContext();

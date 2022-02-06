@@ -42,7 +42,7 @@
     }
 
     a {
-      @include flex($justify-content: $justify-between);
+      @include flex($justify-content: $justify-between, $align-items: baseline);
       width: $width-base;
     }
 

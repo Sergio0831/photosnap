@@ -46,7 +46,7 @@
       max-width: 31rem;
 
       @include mobile {
-        width: 40rem;
+        max-width: 40rem;
       }
     }
 

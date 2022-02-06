@@ -1,0 +1,37 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+@use "../styles/breakpoints" as *;
+
+.table {
+  width: $width-base;
+  max-width: 73rem;
+  margin: 0 auto;
+  text-transform: uppercase;
+
+  &__head {
+    padding-bottom: $padding-base * 2.3;
+    border-bottom: 1px solid $color-black;
+  }
+
+  .row {
+    display: $d-grid;
+    grid-template-columns: minmax(min-content, 1fr) repeat(
+        3,
+        minmax(max-content, 14rem)
+      );
+    padding-left: $padding-base * 2.4;
+    justify-items: $justify-center;
+
+    li:first-child {
+      justify-self: $justify-start;
+    }
+  }
+
+  &__body {
+    .row {
+      padding-top: $padding-base * 2.3;
+      padding-bottom: $padding-base * 2.3;
+      border-bottom: 1px solid $color-light-grey;
+    }
+  }
+}

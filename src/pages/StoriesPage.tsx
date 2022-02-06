@@ -1,8 +1,9 @@
+import React from "react";
 import GenericList from "../components/GenericList";
-import StoriesHero from "../components/StoriesHero";
-import Stories from "../sections/Stories";
 import Story from "../components/Story";
 import { stories } from "../data/stories";
+const StoriesHero = React.lazy(() => import("../components/StoriesHero"));
+const Stories = React.lazy(() => import("../sections/Stories"));
 
 const StoriesPage = () => {
   return (

@@ -2,9 +2,9 @@ import ArrowLink from "../components/ArrowLink";
 import Button from "../components/Button";
 import GenericList from "../components/GenericList";
 import Logo from "../components/Logo";
+import NavbarList from "./NavbarList";
 import { socials } from "../data/socials";
 import classes from "./Footer.module.scss";
-import NavbarList from "./NavbarList";
 
 const Footer = () => {
   return (
@@ -33,7 +33,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className={classes.footer__right}>
-          <ArrowLink link='/prices' theme='dark' btnText='get an invite' />
+          <ArrowLink link='/pricing' theme='dark' btnText='get an invite' />
           <p className={classes.footer__copy}>
             Copyright {new Date().getFullYear()}. All Rights Reserved
           </p>

@@ -1,0 +1,29 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+@use "../styles/breakpoints" as *;
+
+.compare {
+  padding-bottom: $padding-base * 6;
+
+  @include mobile {
+    padding-bottom: $padding-base * 10;
+  }
+
+  @include tablet {
+    padding-bottom: $padding-base * 16;
+  }
+
+  h2 {
+    display: none;
+    text-align: center;
+
+    @include mobile {
+      display: block;
+      margin-bottom: $margin-base * 6.4;
+    }
+
+    @include tablet {
+      margin-bottom: $margin-base * 5.6;
+    }
+  }
+}

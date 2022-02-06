@@ -1,10 +1,10 @@
 import React from "react";
-import Banner from "../components/Banner";
 import Feature from "../components/Feature";
 import GenericList from "../components/GenericList";
 import Section from "../components/Section";
 import { features } from "../data/features";
 const Features = React.lazy(() => import("../sections/Features"));
+const Banner = React.lazy(() => import("../components/Banner"));
 
 const FeaturesPage = () => {
   return (
@@ -34,7 +34,7 @@ const FeaturesPage = () => {
 Get your invite today!'
         btnText='get an invite'
         theme='dark'
-        link='/prices'
+        link='/pricing'
         desktopWebp='../assets/shared/desktop/bg-beta.webp'
         desktopAvif='../assets/shared/desktop/bg-beta.avif'
         tabletWebp='../assets/shared/tablet/bg-beta.webp'

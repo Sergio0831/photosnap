@@ -1,11 +1,10 @@
 import clsx from "clsx";
-import { useRef, useState } from "react";
-import useOnScreen from "../hooks/useOnScreen";
+import useOnLoad from "../hooks/useOnLoad";
 import { ImageType } from "../types/LazyImage.types";
 import { Link } from "../types/Link.types";
 import ArrowLink from "./ArrowLink";
-import classes from "./Banner.module.scss";
 import LazyImage from "./LazyImage";
+import classes from "./Banner.module.scss";
 
 type BannerProps = Link &
   ImageType & {
@@ -25,9 +24,7 @@ const Banner = ({
   mobileWebp,
   alt
 }: BannerProps) => {
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const isVisible = useOnScreen(containerRef);
+  const { isLoaded, isVisible, setIsLoaded, containerRef } = useOnLoad();
 
   const imageClasses = clsx({
     [classes.banner__image]: true,

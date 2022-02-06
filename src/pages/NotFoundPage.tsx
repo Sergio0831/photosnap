@@ -1,9 +1,7 @@
+import NotFound from "../sections/NotFound";
+
 const NotFoundPage = () => {
-  return (
-    <section className='section-center'>
-      <h1>Page Not Found</h1>
-    </section>
-  );
+  return <NotFound />;
 };
 
 export default NotFoundPage;

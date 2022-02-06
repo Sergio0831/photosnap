@@ -50,9 +50,12 @@
 .btn-outline {
   @extend .btn;
   background: transparent;
-  position: $p-relative;
 
-  &::before {
+  span {
+    position: $p-relative;
+  }
+
+  span::before {
     content: "";
     @include position($p-absolute, $bottom: 0, $left: 0);
 
@@ -63,7 +66,7 @@
     transition: width $transition;
   }
 
-  &:hover::before {
+  &:hover span::before {
     width: $width-base;
   }
 }
@@ -73,7 +76,7 @@
 
   color: $color-black;
 
-  &::before {
+  span::before {
     background: $color-black;
   }
 }
@@ -83,7 +86,7 @@
 
   color: $color-white;
 
-  &::before {
+  span::before {
     background: $color-white;
   }
 }

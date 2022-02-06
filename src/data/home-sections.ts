@@ -6,7 +6,7 @@ export const homeSections: SectionTypes[] = [
     text: "Photosnap is a platform for photographers and visual storytellers. We make it easy to share photos, tell stories and connect with others.",
     theme: "dark",
     btnText: "get an invite",
-    link: "/prices",
+    link: "/pricing",
     alt: "create-and-share",
     mobileWebp: "../assets/home/mobile/create-and-share.webp",
     tabletWebp: "../assets/home/tablet/create-and-share.webp",

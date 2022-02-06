@@ -1,14 +1,11 @@
 import clsx from "clsx";
-import { useRef, useState } from "react";
-import useOnScreen from "../hooks/useOnScreen";
+import useOnLoad from "../hooks/useOnLoad";
 import ArrowLink from "./ArrowLink";
 import LazyImage from "./LazyImage";
 import classes from "./StoriesHero.module.scss";
 
 const StoriesHero = () => {
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const isVisible = useOnScreen(containerRef);
+  const { isLoaded, isVisible, setIsLoaded, containerRef } = useOnLoad();
 
   const imageClasses = clsx({
     [classes.hero__image]: true,

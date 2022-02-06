@@ -1,6 +1,5 @@
 import clsx from "clsx";
-import { useRef, useState } from "react";
-import useOnScreen from "../hooks/useOnScreen";
+import useOnLoad from "../hooks/useOnLoad";
 import { StoryTypes } from "../types/Story.types";
 import ArrowLink from "./ArrowLink";
 import Button from "./Button";
@@ -13,9 +12,7 @@ type StoryProps = {
 };
 
 const Story = ({ story, pathname }: StoryProps) => {
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const isVisible = useOnScreen(containerRef);
+  const { isLoaded, isVisible, setIsLoaded, containerRef } = useOnLoad();
 
   const articleClasses = clsx({
     [classes.story]: true,

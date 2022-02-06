@@ -9,7 +9,7 @@ const ArrowLink = ({ link, theme, btnText }: ArrowLinkProps) => {
   return (
     <div className={classes.btn__container}>
       <Button link={link} className={`btn-outline--${theme}`}>
-        {btnText}
+        <span>{btnText}</span>
         <Icon color={theme === "dark" ? "#fff" : "#000"} icon='arrow' />
       </Button>
     </div>

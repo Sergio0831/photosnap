@@ -1,6 +1,5 @@
 import clsx from "clsx";
-import { useRef, useState } from "react";
-import useOnScreen from "../hooks/useOnScreen";
+import useOnLoad from "../hooks/useOnLoad";
 import { SectionTypes } from "../types/Section.types";
 import ArrowLink from "./ArrowLink";
 import LazyImage from "./LazyImage";
@@ -21,9 +20,7 @@ const Section = ({
   alt,
   home
 }: SectionTypes) => {
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const isVisible = useOnScreen(containerRef);
+  const { isLoaded, isVisible, setIsLoaded, containerRef } = useOnLoad();
 
   const imageClasses = clsx({
     [classes.section__image]: true,

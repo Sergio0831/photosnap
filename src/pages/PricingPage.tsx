@@ -1,4 +1,5 @@
 import React from "react";
+import CompareTable from "../components/CompareTable";
 import GenericList from "../components/GenericList";
 import PricingCard from "../components/PricingCard";
 import PricingCards from "../components/PricingCards";
@@ -9,6 +10,7 @@ import { pricingCards } from "../data/pricing-cards";
 const Banner = React.lazy(() => import("../components/Banner"));
 const Section = React.lazy(() => import("../components/Section"));
 const Pricing = React.lazy(() => import("../sections/Pricing"));
+const Compare = React.lazy(() => import("../sections/Compare"));
 
 const PricingPage = () => {
   return (
@@ -36,13 +38,15 @@ const PricingPage = () => {
           />
         </PricingCards>
       </Pricing>
-      <div>Compare table</div>
+      <Compare>
+        <CompareTable />
+      </Compare>
       <Banner
         title='We’re in beta.
         Get your invite today!'
         btnText='get an invite'
         theme='dark'
-        link='/prices'
+        link='/features'
         desktopWebp='../assets/shared/desktop/bg-beta.webp'
         desktopAvif='../assets/shared/desktop/bg-beta.avif'
         tabletWebp='../assets/shared/tablet/bg-beta.webp'
