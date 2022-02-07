@@ -22,6 +22,7 @@ const Footer = () => {
                 <li key={social.id}>
                   <a
                     href={social.link}
+                    aria-label={social.className}
                     target='_blank'
                     rel='noopener noreferrer'
                   >

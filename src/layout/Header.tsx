@@ -27,6 +27,7 @@ const Header = () => {
         </Link>{" "}
         <Button
           type='button'
+          aria-label='Navigation'
           className={menuBtnClasses}
           onClick={toggleNavBar}
         ></Button>

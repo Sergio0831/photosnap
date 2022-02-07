@@ -22,7 +22,11 @@ const Story = ({ story, pathname }: StoryProps) => {
 
   return (
     <article ref={containerRef} className={articleClasses}>
-      <Button link={`/stories/${story.id}`} className={classes.story__link} />
+      <Button
+        aria-label={story.title}
+        link={`/stories/${story.id}`}
+        className={classes.story__link}
+      />
       <div className={classes.story__img}>
         <LazyImage
           isVisible={isVisible}
@@ -38,7 +42,7 @@ const Story = ({ story, pathname }: StoryProps) => {
       <div className={classes.story__overlay}>
         <div className={classes.story__text}>
           {pathname !== "/" && <h5>{story.date}</h5>}
-          <h4>{story.title}</h4>
+          <h5 className={classes.story__title}>{story.title}</h5>
           <h5>by {story.author}</h5>
           <div className={classes.story__line}></div>
           <ArrowLink

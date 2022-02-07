@@ -37,10 +37,6 @@
     color: $color-white;
     width: $width-base;
 
-    h4 {
-      margin: 4px 0;
-    }
-
     a {
       @include flex($justify-content: $justify-between, $align-items: baseline);
       width: $width-base;
@@ -49,6 +45,16 @@
     svg {
       margin-left: auto;
     }
+  }
+
+  &__title {
+    @include font(
+      $font-weight: $fw-bold,
+      $font-size: $fs-medium,
+      $line-height: 2.5rem
+    );
+
+    margin: 4px 0;
   }
 
   &__line {
