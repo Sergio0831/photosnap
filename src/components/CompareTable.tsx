@@ -1,5 +1,14 @@
 import classes from "./CompareTable.module.scss";
 import Icon from "./Icon";
+import { planFeatures } from "../data/plan-features";
+
+const features = [
+  ...planFeatures[0].features,
+  ...planFeatures[1].features,
+  ...planFeatures[2].features
+];
+
+const uniqueFeatures = [...new Set(features.map((item) => item))];
 
 const CompareTable = () => {
   return (
@@ -9,110 +18,55 @@ const CompareTable = () => {
           <li className={classes.table__heading}>
             <h6>the features</h6>
           </li>
-          <li className={classes.table__heading}>
-            <h6>basic</h6>
-          </li>
-          <li className={classes.table__heading}>
-            <h6>pro</h6>
-          </li>
-          <li className={classes.table__heading}>
-            <h6>business</h6>
-          </li>
+          <ul>
+            {planFeatures.map((item, index) => (
+              <li key={index} className={classes.table__heading}>
+                <h6>{item.plan}</h6>
+              </li>
+            ))}
+          </ul>
         </ul>
       </div>
       <div className={classes.table__body}>
-        <ul className={classes.row}>
-          <li className={classes.table__data}>
-            <h6>unlimited story posting</h6>
-          </li>
-          <li className={classes.table__data}>
-            <Icon icon='check' size='1.6rem' />
-          </li>
-          <li className={classes.table__data}>
-            <Icon icon='check' size='1.6rem' />
-          </li>
-          <li className={classes.table__data}>
-            <Icon icon='check' size='1.6rem' />
-          </li>
-        </ul>
-        <ul className={classes.row}>
-          <li className={classes.table__data}>
-            <h6>unlimited photo upload</h6>
-          </li>
-          <li className={classes.table__data}>
-            <Icon icon='check' size='1.6rem' />
-          </li>
-          <li className={classes.table__data}>
-            <Icon icon='check' size='1.6rem' />
-          </li>
-          <li className={classes.table__data}>
-            <Icon icon='check' size='1.6rem' />
-          </li>
-        </ul>
-        <ul className={classes.row}>
-          <li className={classes.table__data}>
-            <h6>embedding custom content</h6>
-          </li>
-          <li className={classes.table__data}></li>
-          <li className={classes.table__data}>
-            <Icon icon='check' size='1.6rem' />
-          </li>
-          <li className={classes.table__data}>
-            <Icon icon='check' size='1.6rem' />
-          </li>
-        </ul>
-        <ul className={classes.row}>
-          <li className={classes.table__data}>
-            <h6>customize metadata</h6>
-          </li>
-          <li className={classes.table__data}></li>
-          <li className={classes.table__data}>
-            <Icon icon='check' size='1.6rem' />
-          </li>
-          <li className={classes.table__data}>
-            <Icon icon='check' size='1.6rem' />
-          </li>
-        </ul>
-        <ul className={classes.row}>
-          <li className={classes.table__data}>
-            <h6>advanced metrics</h6>
-          </li>
-          <li className={classes.table__data}></li>
-          <li className={classes.table__data}></li>
-          <li className={classes.table__data}>
-            <Icon icon='check' size='1.6rem' />
-          </li>
-        </ul>
-        <ul className={classes.row}>
-          <li className={classes.table__data}>
-            <h6>photo downloads</h6>
-          </li>
-          <li className={classes.table__data}></li>
-          <li className={classes.table__data}></li>
-          <li className={classes.table__data}>
-            <Icon icon='check' size='1.6rem' />
-          </li>
-        </ul>
-        <ul className={classes.row}>
-          <li className={classes.table__data}>
-            <h6>search engine indexing</h6>
-          </li>
-          <li className={classes.table__data}></li>
-          <li className={classes.table__data}></li>
-          <li className={classes.table__data}>
-            <Icon icon='check' size='1.6rem' />
-          </li>
-        </ul>
-        <ul className={classes.row}>
-          <li className={classes.table__data}>
-            <h6>custom analytics</h6>
-          </li>
-          <li className={classes.table__data}></li>
-          <li className={classes.table__data}></li>
-          <li className={classes.table__data}>
-            <Icon icon='check' size='1.6rem' />
-          </li>
-        </ul>
+        {uniqueFeatures.map((item, index) => (
+          <ul key={index} className={classes.row}>
+            <li className={classes.table__data}>
+              <h6>{item}</h6>
+            </li>
+            <ul>
+              {planFeatures[0].features.find((feature) => feature === item) ? (
+                <li className={classes.table__data}>
+                  <span>basic</span>
+                  <Icon icon='check' />
+                </li>
+              ) : (
+                <li className={classes.table__data}>
+                  <span>basic</span>
+                </li>
+              )}
+              {planFeatures[1].features.find((feature) => feature === item) ? (
+                <li className={classes.table__data}>
+                  <span>pro</span>
+                  <Icon icon='check' />
+                </li>
+              ) : (
+                <li className={classes.table__data}>
+                  <span>pro</span>
+                </li>
+              )}
+              {planFeatures[2].features.find((feature) => feature === item) ? (
+                <li className={classes.table__data}>
+                  <span>bussines</span>
+                  <Icon icon='check' />
+                </li>
+              ) : (
+                <li className={classes.table__data}>
+                  <span>bussines</span>
+                </li>
+              )}
+            </ul>
+          </ul>
+        ))}
       </div>
     </div>
   );

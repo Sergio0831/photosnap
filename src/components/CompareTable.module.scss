@@ -11,27 +11,64 @@
   &__head {
     padding-bottom: $padding-base * 2.3;
     border-bottom: 1px solid $color-black;
+
+    .row ul li {
+      display: none;
+
+      @include mobile {
+        display: block;
+      }
+    }
   }
 
   .row {
-    display: $d-grid;
-    grid-template-columns: minmax(min-content, 1fr) repeat(
-        3,
-        minmax(max-content, 14rem)
-      );
-    padding-left: $padding-base * 2.4;
+    @include flex($flex-direction: column, $justify-content: $justify-between);
+    padding-left: 0;
     justify-items: $justify-center;
 
-    li:first-child {
-      justify-self: $justify-start;
+    @include mobile {
+      flex-direction: row;
+      padding-left: $padding-base * 2.4;
+    }
+
+    ul {
+      display: $d-grid;
+      grid-template-columns: repeat(3, minmax(6rem, 14rem));
+      justify-items: $justify-start;
+
+      @include mobile {
+        justify-items: $justify-center;
+      }
     }
   }
 
   &__body {
     .row {
-      padding-top: $padding-base * 2.3;
-      padding-bottom: $padding-base * 2.3;
+      padding-top: $padding-base * 2;
+      padding-bottom: $padding-base * 1.8;
       border-bottom: 1px solid $color-light-grey;
+
+      svg {
+        height: 1.6rem;
+      }
+
+      span {
+        display: block;
+        margin: $margin-base * 1.6 0 8px;
+        opacity: 0.5;
+
+        @include font(
+          $font-weight: 700,
+          $font-size: 1rem,
+          $line-height: 1.3rem
+        );
+      }
+
+      @include mobile {
+        span {
+          display: none;
+        }
+      }
     }
   }
 }
