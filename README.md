@@ -2,12 +2,12 @@
 
 This is a solution to the [Photosnap Website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/photosnap-multipage-website-nMDSrNmNW). Frontend Mentor challenges help me improve my coding skills by building realistic projects.
 
-![Screenshot](./assets/preview.jpg)
+![Screenshot](preview.jpg)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://photosnap-ivcenko.netlify.app/)
+- Solution URL: [https://your-solution-url.com](https://your-solution-url.com)
+- Live Site URL: [https://photosnap-ivcenko.netlify.app/](https://photosnap-ivcenko.netlify.app/)
 
 ## My process
 
