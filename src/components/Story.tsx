@@ -1,6 +1,9 @@
 import clsx from "clsx";
+import { motion } from "framer-motion";
 import useOnLoad from "../hooks/useOnLoad";
+import useOnScroll from "../hooks/useOnScroll";
 import { StoryTypes } from "../types/Story.types";
+import { container, fadeInUp, slideInLeft, fadeIn } from "../utils/animations";
 import ArrowLink from "./ArrowLink";
 import Button from "./Button";
 import LazyImage from "./LazyImage";
@@ -13,6 +16,7 @@ type StoryProps = {
 
 const Story = ({ story, pathname }: StoryProps) => {
   const { isLoaded, isVisible, setIsLoaded, containerRef } = useOnLoad();
+  const { controls, element } = useOnScroll();
 
   const articleClasses = clsx({
     [classes.story]: true,
@@ -40,17 +44,31 @@ const Story = ({ story, pathname }: StoryProps) => {
         />
       </div>
       <div className={classes.story__overlay}>
-        <div className={classes.story__text}>
-          {pathname !== "/" && <h5>{story.date}</h5>}
-          <h5 className={classes.story__title}>{story.title}</h5>
-          <h5>by {story.author}</h5>
-          <div className={classes.story__line}></div>
-          <ArrowLink
-            link={`/stories/${story.id}`}
-            btnText='read story'
-            theme='dark'
-          />
-        </div>
+        <motion.div
+          className={classes.story__text}
+          variants={container}
+          animate={controls}
+          ref={element}
+        >
+          {pathname !== "/" && (
+            <motion.h5 variants={fadeInUp}>{story.date}</motion.h5>
+          )}
+          <motion.h5 className={classes.story__title} variants={fadeInUp}>
+            {story.title}
+          </motion.h5>
+          <motion.h5 variants={fadeInUp}>by {story.author}</motion.h5>
+          <motion.div
+            className={classes.story__line}
+            variants={slideInLeft}
+          ></motion.div>
+          <motion.div variants={fadeIn}>
+            <ArrowLink
+              link={`/stories/${story.id}`}
+              btnText='read story'
+              theme='dark'
+            />
+          </motion.div>
+        </motion.div>
       </div>
     </article>
   );

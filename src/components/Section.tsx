@@ -1,6 +1,10 @@
 import clsx from "clsx";
+import { motion } from "framer-motion";
 import useOnLoad from "../hooks/useOnLoad";
+import useOnScroll from "../hooks/useOnScroll";
+
 import { SectionTypes } from "../types/Section.types";
+import { container, fadeInUp, fadeIn } from "../utils/animations";
 import ArrowLink from "./ArrowLink";
 import LazyImage from "./LazyImage";
 import classes from "./Section.module.scss";
@@ -21,6 +25,7 @@ const Section = ({
   home
 }: SectionTypes) => {
   const { isLoaded, isVisible, setIsLoaded, containerRef } = useOnLoad();
+  const { element, controls } = useOnScroll();
 
   const imageClasses = clsx({
     [classes.section__image]: true,
@@ -37,17 +42,24 @@ const Section = ({
   return (
     <section className={sectionClasses}>
       <div className={classes.section__text}>
-        <div className={classes.text__container}>
-          <h2>{heading}</h2>
-          <p>{text}</p>
+        <motion.div
+          variants={container}
+          animate={controls}
+          ref={element}
+          className={classes.text__container}
+        >
+          <motion.h2 variants={fadeInUp}>{heading}</motion.h2>
+          <motion.p variants={fadeInUp}>{text}</motion.p>
           {home && (
-            <ArrowLink
-              link={link as string}
-              theme={theme}
-              btnText={btnText as string}
-            />
+            <motion.div variants={fadeIn}>
+              <ArrowLink
+                link={link as string}
+                theme={theme}
+                btnText={btnText as string}
+              />
+            </motion.div>
           )}
-        </div>
+        </motion.div>
       </div>
       <div className={imageClasses} ref={containerRef}>
         <LazyImage

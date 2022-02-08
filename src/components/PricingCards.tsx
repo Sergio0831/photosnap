@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import useScroll from "../hooks/useOnScroll";
+import { container } from "../utils/animations";
 import classes from "./PricingCards.module.scss";
 
 type PricingCardsProps = {
@@ -5,7 +8,18 @@ type PricingCardsProps = {
 };
 
 const PricingCards = ({ children }: PricingCardsProps) => {
-  return <div className={classes.cards}>{children}</div>;
+  const { controls, element } = useScroll();
+
+  return (
+    <motion.div
+      variants={container}
+      animate={controls}
+      ref={element}
+      className={classes.cards}
+    >
+      {children}
+    </motion.div>
+  );
 };
 
 export default PricingCards;

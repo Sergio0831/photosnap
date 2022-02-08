@@ -11,9 +11,9 @@ type SinglePageTextProps = {
 const SinglePageText = ({ title, author, date, text }: SinglePageTextProps) => {
   return (
     <section className={`${classes.singlePage} section-center`}>
-      <h2>{title}</h2>
-      <h4>By {author}</h4>
-      <h4>{date}</h4>
+      <h1>{title}</h1>
+      <h5>By {author}</h5>
+      <h5>{date}</h5>
       {text.map((t, index) => (
         <p key={index}>{t}</p>
       ))}

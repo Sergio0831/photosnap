@@ -1,6 +1,9 @@
 import classes from "./CompareTable.module.scss";
 import Icon from "./Icon";
 import { planFeatures } from "../data/plan-features";
+import { motion } from "framer-motion";
+import useScroll from "../hooks/useOnScroll";
+import { fadeIn } from "../utils/animations";
 
 const features = [
   ...planFeatures[0].features,
@@ -11,8 +14,15 @@ const features = [
 const uniqueFeatures = [...new Set(features.map((item) => item))];
 
 const CompareTable = () => {
+  const { controls, element } = useScroll();
+
   return (
-    <div className={classes.table}>
+    <motion.div
+      className={classes.table}
+      variants={fadeIn}
+      animate={controls}
+      ref={element}
+    >
       <div className={classes.table__head}>
         <ul className={classes.row}>
           <li className={classes.table__heading}>
@@ -68,7 +78,7 @@ const CompareTable = () => {
           </ul>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

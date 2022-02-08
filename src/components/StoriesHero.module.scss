@@ -32,6 +32,7 @@
     color: $color-white;
     background-color: $color-black;
     padding: $padding-base * 4.8 $padding-base * 2.8;
+    z-index: 1;
 
     @include mobile {
       grid-column: 2 / 5;
@@ -41,9 +42,18 @@
       background-color: transparent;
     }
 
+    h1 {
+      @include font(
+        $font-weight: $fw-bold,
+        $font-size: $fs-xs,
+        $line-height: 1.6rem
+      );
+
+      letter-spacing: $ls-base;
+    }
+
     h2 {
       margin: $margin-base * 2.4 0 $margin-base * 1.6;
-      position: $p-relative;
     }
 
     span {

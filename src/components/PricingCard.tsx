@@ -1,6 +1,8 @@
 import clsx from "clsx";
+import { motion } from "framer-motion";
 import { useAppContext } from "../store/context";
 import { Price } from "../types/Price.types";
+import { fadeInUp } from "../utils/animations";
 import Button from "./Button";
 import classes from "./PricingCard.module.scss";
 
@@ -17,7 +19,7 @@ const PricingCard = ({ card }: PricingCardProps) => {
   });
 
   return (
-    <div className={cardClasses}>
+    <motion.div variants={fadeInUp} className={cardClasses}>
       <div className={classes.card__text}>
         {" "}
         <h3>{card.title}</h3>
@@ -33,7 +35,7 @@ const PricingCard = ({ card }: PricingCardProps) => {
       >
         pick plan
       </Button>
-    </div>
+    </motion.div>
   );
 };
 

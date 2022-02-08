@@ -1,10 +1,13 @@
 import clsx from "clsx";
 import useOnLoad from "../hooks/useOnLoad";
+import useOnScroll from "../hooks/useOnScroll";
 import { ImageType } from "../types/LazyImage.types";
 import { Link } from "../types/Link.types";
 import ArrowLink from "./ArrowLink";
 import LazyImage from "./LazyImage";
 import classes from "./Banner.module.scss";
+import { motion } from "framer-motion";
+import { fadeInLeft, fadeInRight } from "../utils/animations";
 
 type BannerProps = Link &
   ImageType & {
@@ -25,6 +28,7 @@ const Banner = ({
   alt
 }: BannerProps) => {
   const { isLoaded, isVisible, setIsLoaded, containerRef } = useOnLoad();
+  const { controls, element } = useOnScroll();
 
   const imageClasses = clsx({
     [classes.banner__image]: true,
@@ -34,10 +38,16 @@ const Banner = ({
 
   return (
     <section className={classes.banner}>
-      <div className={`${classes.banner__content} section-center`}>
-        <h2>{title}</h2>
-        <ArrowLink link={link} btnText={btnText} theme={theme} />
-      </div>
+      <motion.div
+        animate={controls}
+        ref={element}
+        className={`${classes.banner__content} section-center`}
+      >
+        <motion.h2 variants={fadeInLeft}>{title}</motion.h2>
+        <motion.div variants={fadeInRight}>
+          <ArrowLink link={link} btnText={btnText} theme={theme} />
+        </motion.div>
+      </motion.div>
       <div className={imageClasses} ref={containerRef}>
         <LazyImage
           isVisible={isVisible}

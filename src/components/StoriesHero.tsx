@@ -1,5 +1,8 @@
 import clsx from "clsx";
+import { motion } from "framer-motion";
 import useOnLoad from "../hooks/useOnLoad";
+import useOnScroll from "../hooks/useOnScroll";
+import { container, fadeInUp, fadeIn } from "../utils/animations";
 import ArrowLink from "./ArrowLink";
 import LazyImage from "./LazyImage";
 import classes from "./StoriesHero.module.scss";
@@ -33,62 +36,38 @@ const StoriesHero = ({ stories }: StoriesHeroProps) => {
             mobileAvif='../assets/stories/mobile/moon-of-appalacia.avif'
             alt='Moon'
           />
-          <picture>
-            <source
-              media='(min-width: 48em)'
-              srcSet='../assets/stories/desktop/moon-of-appalacia.avif'
-              type='image/avif'
-            />
-            <source
-              media='(min-width: 35em)'
-              srcSet='../assets/stories/tablet/moon-of-appalacia.avif'
-              type='image/avif'
-            />
-            <source
-              srcSet='../assets/stories/mobile/moon-of-appalacia.avif'
-              type='image/avif'
-            />
-            <source
-              media='(min-width: 48em)'
-              srcSet='../assets/stories/desktop/moon-of-appalacia.webp'
-              type='image/webp'
-            />
-            <source
-              media='(min-width: 35em)'
-              srcSet='../assets/stories/tablet/moon-of-appalacia.webp'
-              type='image/webp'
-            />
-            <source
-              srcSet='../assets/stories/mobile/moon-of-appalacia.webp'
-              type='image/webp'
-            />
-            <img
-              loading='lazy'
-              src='../assets/stories/desktop/moon-of-appalacia.webp'
-              alt='Stories Hero'
-            />
-          </picture>
         </div>
         {stories && (
-          <div className={classes.hero__text}>
-            <h6>last month's featured story</h6>
-            <h2>hazzy full moon of appalachia</h2>
-            <h5>
+          <motion.div
+            className={classes.hero__text}
+            variants={container}
+            initial='hidden'
+            animate='show'
+          >
+            <motion.h1 variants={fadeInUp}>
+              last month's featured story
+            </motion.h1>
+            <motion.h2 variants={fadeInUp}>
+              hazzy full moon of appalachia
+            </motion.h2>
+            <motion.h5 variants={fadeInUp}>
               <span>March 2nd 2020</span>
               by John Appleseed
-            </h5>
-            <p>
+            </motion.h5>
+            <motion.p variants={fadeInUp}>
               The dissected plateau area, while not actually made up of
               geological mountains, is popularly called "mountains," especially
               in eastern Kentucky and West Virginia, and while the ridges are
               not high, the terrain is extremely rugged.
-            </p>
-            <ArrowLink
-              btnText='read the story'
-              theme='dark'
-              link='/stories/s1'
-            />
-          </div>
+            </motion.p>
+            <motion.div variants={fadeIn}>
+              <ArrowLink
+                btnText='read the story'
+                theme='dark'
+                link='/stories/s1'
+              />
+            </motion.div>
+          </motion.div>
         )}
       </section>
     </>

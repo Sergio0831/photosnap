@@ -5,7 +5,7 @@ const useScroll = (thresh = 0.4) => {
   const controls = useAnimation();
   const [element, inView] = useInView({
     threshold: thresh,
-    rootMargin: "-100px 0px"
+    rootMargin: "-50px 0px"
   });
 
   if (inView) {
@@ -14,7 +14,7 @@ const useScroll = (thresh = 0.4) => {
     controls.start("hidden");
   }
 
-  return [element, inView];
+  return { element, inView, controls };
 };
 
 export default useScroll;
