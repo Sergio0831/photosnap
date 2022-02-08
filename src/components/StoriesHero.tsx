@@ -4,7 +4,11 @@ import ArrowLink from "./ArrowLink";
 import LazyImage from "./LazyImage";
 import classes from "./StoriesHero.module.scss";
 
-const StoriesHero = () => {
+type StoriesHeroProps = {
+  stories?: boolean;
+};
+
+const StoriesHero = ({ stories }: StoriesHeroProps) => {
   const { isLoaded, isVisible, setIsLoaded, containerRef } = useOnLoad();
 
   const imageClasses = clsx({
@@ -65,21 +69,27 @@ const StoriesHero = () => {
             />
           </picture>
         </div>
-        <div className={classes.hero__text}>
-          <h6>last month's featured story</h6>
-          <h2>hazzy full moon of appalachia</h2>
-          <h5>
-            <span>March 2nd 2020</span>
-            by John Appleseed
-          </h5>
-          <p>
-            The dissected plateau area, while not actually made up of geological
-            mountains, is popularly called "mountains," especially in eastern
-            Kentucky and West Virginia, and while the ridges are not high, the
-            terrain is extremely rugged.
-          </p>
-          <ArrowLink btnText='read the story' theme='dark' link='/stories/s1' />
-        </div>
+        {stories && (
+          <div className={classes.hero__text}>
+            <h6>last month's featured story</h6>
+            <h2>hazzy full moon of appalachia</h2>
+            <h5>
+              <span>March 2nd 2020</span>
+              by John Appleseed
+            </h5>
+            <p>
+              The dissected plateau area, while not actually made up of
+              geological mountains, is popularly called "mountains," especially
+              in eastern Kentucky and West Virginia, and while the ridges are
+              not high, the terrain is extremely rugged.
+            </p>
+            <ArrowLink
+              btnText='read the story'
+              theme='dark'
+              link='/stories/s1'
+            />
+          </div>
+        )}
       </section>
     </>
   );

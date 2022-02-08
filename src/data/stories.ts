@@ -164,7 +164,7 @@ export const stories: StoryTypes[] = [
     desktopWebp: "../assets/stories/desktop/somwarpet.webp",
     mobileAvif: "../assets/stories/mobile/somwarpet.avif",
     desktopAvif: "../assets/stories/desktop/somwarpet.avif",
-    alt: "somwarpet"
+    alt: "somewarpet"
   },
   {
     id: "s16",

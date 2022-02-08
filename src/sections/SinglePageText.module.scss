@@ -1,0 +1,39 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.singlePage {
+  padding-top: $padding-base * 5;
+  padding-bottom: $padding-base * 5;
+
+  h2 {
+    margin-bottom: $margin-base * 2;
+  }
+
+  h4 {
+    display: inline-block;
+    margin-right: $margin-base * 4;
+    margin-bottom: $margin-base * 2;
+    opacity: 0.6;
+  }
+
+  p {
+    font-size: $fs-medium;
+    letter-spacing: 0.5px;
+    margin-bottom: $margin-base * 2;
+  }
+
+  a {
+    margin-top: $margin-base * 3;
+
+    @include flex(
+      $flex-direction: row-reverse,
+      $align-items: center,
+      $justify-content: $justify-center
+    );
+
+    svg {
+      transform: rotate(180deg);
+      margin-right: $margin-base * 1.6;
+    }
+  }
+}

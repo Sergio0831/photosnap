@@ -8,7 +8,7 @@ const Stories = React.lazy(() => import("../sections/Stories"));
 const StoriesPage = () => {
   return (
     <>
-      <StoriesHero />
+      <StoriesHero stories />
       <Stories>
         <GenericList
           items={stories}
