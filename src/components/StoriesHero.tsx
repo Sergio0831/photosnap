@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import useOnLoad from "../hooks/useOnLoad";
-import useOnScroll from "../hooks/useOnScroll";
 import { container, fadeInUp, fadeIn } from "../utils/animations";
 import ArrowLink from "./ArrowLink";
 import LazyImage from "./LazyImage";
