@@ -26,7 +26,7 @@ const PricingCard = ({ card }: PricingCardProps) => {
         <p>{card.description}</p>
       </div>
       <div className={classes.card__price}>
-        <h2>{card.price[index].amount}</h2>
+        <h2>${card.price[index].amount}</h2>
         <span>{plan === "monthly" ? "per month" : "per year"}</span>
       </div>
       <Button
