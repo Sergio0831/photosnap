@@ -1,73 +1,74 @@
-@use "../styles/variables" as *;
-@use "../styles/mixins" as *;
-@use "../styles/breakpoints" as *;
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+@use '../styles/breakpoints' as *;
 
 .hero {
-  display: $d-grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr;
-  height: auto;
-  width: 100vw;
+	display: $d-grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: 1fr;
+	height: auto;
+	width: 100vw;
 
-  @include mobile {
-    height: 65rem;
-    grid-template-rows: repeat(2, 1fr);
-  }
+	@include mobile {
+		height: 65rem;
+		grid-template-rows: repeat(2, 1fr);
+	}
 
-  &__image {
-    grid-column: 1 / -1;
-    grid-row: 1;
-    height: 37.5rem;
+	&__image {
+		grid-column: 1 / -1;
+		grid-row: 1;
+		height: 37.5rem;
 
-    @include mobile {
-      grid-row: 1 / -1;
-      height: auto;
-    }
-  }
+		@include mobile {
+			grid-row: 1 / -1;
+			height: auto;
+		}
+	}
 
-  &__text {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    align-self: unset;
-    color: $color-white;
-    background-color: $color-black;
-    padding: $padding-base * 4.8 $padding-base * 2.8;
-    z-index: 1;
+	&__text {
+		grid-column: 1 / -1;
+		grid-row: 2;
+		align-self: unset;
+		color: $color-white;
+		background-color: $color-black;
+		padding: $padding-base * 4.8 $padding-base * 2.8;
+		z-index: 1;
 
-    @include mobile {
-      grid-column: 2 / 5;
-      grid-row: 1 / -1;
-      align-self: $align-center;
-      padding: 0;
-      background-color: transparent;
-    }
+		@include mobile {
+			max-width: 39rem;
+			grid-row: 1/-1;
+			align-self: $align-center;
+			padding: 0;
+			background-color: transparent;
+			margin-left: 10vw;
+		}
 
-    h1 {
-      @include font(
-        $font-weight: $fw-bold,
-        $font-size: $fs-xs,
-        $line-height: 1.6rem
-      );
+		h1 {
+			@include font(
+				$font-weight: $fw-bold,
+				$font-size: $fs-xs,
+				$line-height: 1.6rem
+			);
 
-      letter-spacing: $ls-base;
-    }
+			letter-spacing: $ls-base;
+		}
 
-    h2 {
-      margin: $margin-base * 2.4 0 $margin-base * 1.6;
-    }
+		h2 {
+			margin: $margin-base * 2.4 0 $margin-base * 1.6;
+		}
 
-    span {
-      opacity: 0.75;
-      margin-right: $margin-base * 0.9;
-    }
+		span {
+			opacity: 0.75;
+			margin-right: $margin-base * 0.9;
+		}
 
-    p {
-      margin: $margin-base * 2.4 0;
-      opacity: 0.6;
-    }
+		p {
+			margin: $margin-base * 2.4 0;
+			opacity: 0.6;
+		}
 
-    svg {
-      margin-left: $margin-base * 1.6;
-    }
-  }
+		svg {
+			margin-left: $margin-base * 1.6;
+		}
+	}
 }

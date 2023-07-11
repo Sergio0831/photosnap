@@ -1,67 +1,67 @@
-@use "../styles/variables" as *;
-@use "../styles/mixins" as *;
-@use "../styles/breakpoints" as *;
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+@use '../styles/breakpoints' as *;
 
 .nav {
-  @include flex($align-items: $align-center, $flex-direction: column);
-  @include position($position: $p-absolute, $top: 7.2rem);
+	@include flex($align-items: $align-center, $flex-direction: column);
+	@include position($position: $p-absolute, $top: 7.2rem);
 
-  background-color: $color-white;
-  row-gap: $gap-base * 2;
-  width: $width-base;
-  padding: $padding-base * 3.2 $padding-base * 4;
-  opacity: 0;
-  visibility: hidden;
-  transform: scale(0.8);
-  transition: opacity $transition, visibility $transition, transform $transition;
+	background-color: $color-white;
+	row-gap: $gap-base * 2;
+	width: $width-base;
+	padding: $padding-base * 3.2 $padding-base * 4;
+	opacity: 0;
+	visibility: hidden;
+	transform: scale(0.8);
+	transition: opacity $transition, visibility $transition, transform $transition;
 
-  &.open {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1);
-    z-index: 1;
-  }
+	&.open {
+		opacity: 1;
+		visibility: visible;
+		transform: scale(1);
+		z-index: 5;
+	}
 
-  @include tablet {
-    @include flex($align-items: $align-center, $flex-direction: row);
+	@include tablet {
+		@include flex($align-items: $align-center, $flex-direction: row);
 
-    width: unset;
-    position: unset;
-    padding: 0;
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1);
-  }
+		width: unset;
+		position: unset;
+		padding: 0;
+		opacity: 1;
+		visibility: visible;
+		transform: scale(1);
+	}
 
-  ul {
-    @include flex($align-items: $align-center, $flex-direction: column);
+	ul {
+		@include flex($align-items: $align-center, $flex-direction: column);
 
-    border-bottom: 1px solid #979797;
-    width: $width-base;
+		border-bottom: 1px solid #979797;
+		width: $width-base;
 
-    @include tablet {
-      @include flex($align-items: $align-center, $flex-direction: row);
+		@include tablet {
+			@include flex($align-items: $align-center, $flex-direction: row);
 
-      column-gap: $gap-base * 3.7;
-      padding-top: 0;
-      border-bottom: 0;
-    }
-  }
+			column-gap: $gap-base * 3.7;
+			padding-top: 0;
+			border-bottom: 0;
+		}
+	}
 
-  li {
-    padding-bottom: $padding-base * 2;
+	li {
+		padding-bottom: $padding-base * 2;
 
-    @include tablet {
-      padding-bottom: 0;
-    }
-  }
+		@include tablet {
+			padding-bottom: 0;
+		}
+	}
 
-  &__btn {
-    display: $d-block;
-    width: $width-base;
+	&__btn {
+		display: $d-block;
+		width: $width-base;
 
-    @include tablet {
-      display: $d-none;
-    }
-  }
+		@include tablet {
+			display: $d-none;
+		}
+	}
 }
