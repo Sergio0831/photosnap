@@ -1,86 +1,90 @@
-@use "../styles/variables" as *;
-@use "../styles/mixins" as *;
-@use "../styles/breakpoints" as *;
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+@use '../styles/breakpoints' as *;
 
 .story {
-  position: $p-relative;
-  transition: transform $transition;
-  height: 37.5rem;
+	position: $p-relative;
+	transition: transform $transition;
+	height: 37.5rem;
 
-  @include mobile {
-    height: 50rem;
-  }
+	@include mobile {
+		height: 50rem;
+	}
 
-  &__img {
-    height: $height-base;
-  }
+	&__img {
+		height: $height-base;
+	}
 
-  &__link {
-    @include position($position: $p-absolute);
-    @include wh;
-    z-index: 2;
-  }
+	&__link {
+		@include position($position: $p-absolute);
+		@include wh;
+		z-index: 2;
+	}
 
-  &__overlay {
-    background: linear-gradient(
-      rgba($color-black, 0.1),
-      rgba($color-black, 0.6)
-    );
-    padding: 0 $padding-base * 4 $padding-base * 4;
+	&__overlay {
+		background: linear-gradient(
+			rgba($color-black, 0.1),
+			rgba($color-black, 0.6)
+		);
+		padding: 0 $padding-base * 4 $padding-base * 4;
 
-    @include flex($align-items: flex-end);
-    @include wh;
-    @include position($position: $p-absolute, $top: 0, $left: 0);
-  }
+		@include flex($align-items: flex-end);
+		@include wh;
+		@include position($position: $p-absolute, $top: 0, $left: 0);
+	}
 
-  &__text {
-    color: $color-white;
-    width: $width-base;
+	&__text {
+		color: $color-white;
+		width: $width-base;
 
-    a {
-      @include flex($justify-content: $justify-between, $align-items: baseline);
-      width: $width-base;
-    }
+		a {
+			@include flex($justify-content: $justify-between, $align-items: baseline);
+			width: $width-base;
+		}
 
-    svg {
-      margin-left: auto;
-    }
-  }
+		svg {
+			margin-left: auto;
+		}
+	}
 
-  &__title {
-    @include font(
-      $font-weight: $fw-bold,
-      $font-size: $fs-medium,
-      $line-height: 2.5rem
-    );
+	&__title {
+		@include font(
+			$font-weight: $fw-bold,
+			$font-size: $fs-medium,
+			$line-height: 2.5rem
+		);
 
-    margin: 4px 0;
-  }
+		margin: 4px 0;
+	}
 
-  &__line {
-    height: 1px;
-    background-color: $color-dark-grey;
-    margin: $margin-base * 1.6 0 $margin-base * 2;
-  }
+	&__line {
+		height: 1px;
+		background-color: $color-dark-grey;
+		margin: $margin-base * 1.6 0 $margin-base * 2;
+		transform-origin: left;
+		will-change: transform;
+	}
 
-  &::after {
-    content: "";
-    @include position($position: $p-absolute, $bottom: 0, $right: 0);
-    height: 6px;
-    width: 0;
-    background-image: $main-accent;
-    transition: all $transition;
-  }
+	&::after {
+		content: '';
+		@include position($position: $p-absolute, $bottom: 0, $left: 0);
+		height: 6px;
+		width: $width-base;
+		transform: scaleX(0);
+		will-change: transform;
+		background-image: $main-accent;
+		transition: transform $transition;
+		transform-origin: bottom right;
+	}
 
-  @include hover {
-    &:hover {
-      transform: translateY(-2.4rem);
+	@include hover {
+		&:hover {
+			transform: translateY(-2.4rem);
 
-      &::after {
-        left: 0;
-        right: auto;
-        width: $width-base;
-      }
-    }
-  }
+			&::after {
+				transform: scaleX(1);
+				transform-origin: bottom left;
+			}
+		}
+	}
 }

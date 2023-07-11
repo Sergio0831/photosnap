@@ -1,162 +1,166 @@
-@use "../styles/variables" as *;
-@use "../styles/mixins" as *;
-@use "../styles/breakpoints" as *;
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+@use '../styles/breakpoints' as *;
 
 .section {
-  display: $d-grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-  height: auto;
+	display: $d-grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: 1fr;
+	height: auto;
 
-  @include mobile {
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    height: 60rem;
-  }
+	@include mobile {
+		grid-template-columns: repeat(12, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		height: 60rem;
+	}
 
-  &__text {
-    grid-column: span 12;
-    grid-row: 2;
+	&__text {
+		grid-column: span 12;
+		grid-row: 2;
 
-    @include flex(
-      $flex-direction: column,
-      $justify-content: $justify-center,
-      $align-items: $align-center
-    );
+		@include flex(
+			$flex-direction: column,
+			$justify-content: $justify-center,
+			$align-items: $align-center
+		);
 
-    .text__container {
-      width: $width-base;
-      padding: $padding-base * 7.2 $padding-base * 3;
+		.text__container {
+			width: $width-base;
+			padding: $padding-base * 7.2 $padding-base * 3;
 
-      @include mobile {
-        width: $width-base;
-        padding: 0 7vw;
-      }
-    }
+			@include mobile {
+				width: $width-base;
+				padding: 0 7vw;
+			}
+		}
 
-    p {
-      margin: $margin-base * 1.6 0 $margin-base * 2.3;
-      opacity: $text-opacity;
+		p {
+			margin: $margin-base * 1.6 0 $margin-base * 2.3;
+			opacity: $text-opacity;
 
-      @include mobile {
-        margin: $margin-base * 2 0 $margin-base * 4.8;
-      }
-    }
+			@include mobile {
+				margin: $margin-base * 2 0 $margin-base * 4.8;
+			}
+		}
 
-    svg {
-      margin-left: $margin-base * 1.8;
-    }
+		svg {
+			margin-left: $margin-base * 1.8;
+		}
 
-    @include mobile {
-      grid-column: span 8;
-      grid-row: 1 / -1;
-    }
+		@include mobile {
+			grid-column: span 8;
+			grid-row: 1 / -1;
+		}
 
-    @include tablet {
-      grid-column: span 6;
-      grid-row: 1 / -1;
-    }
+		@include tablet {
+			grid-column: span 6;
+			grid-row: 1 / -1;
+		}
 
-    @include laptop {
-      grid-column: span 5;
-      grid-row: 1 / -1;
-    }
-  }
+		@include laptop {
+			grid-column: span 5;
+			grid-row: 1 / -1;
+		}
+	}
 
-  &__image {
-    grid-column: span 12;
-    grid-row: 1;
+	&__image {
+		grid-column: span 12;
+		grid-row: 1;
 
-    @include mobile {
-      grid-column: span 4;
-      grid-row: 1 / -1;
-    }
+		@include mobile {
+			grid-column: span 4;
+			grid-row: 1 / -1;
+		}
 
-    @include tablet {
-      grid-column: span 6;
-      grid-row: 1 / -1;
-    }
+		@include tablet {
+			grid-column: span 6;
+			grid-row: 1 / -1;
+		}
 
-    @include laptop {
-      grid-column: span 7;
-      grid-row: 1 / -1;
-    }
-  }
+		@include laptop {
+			grid-column: span 7;
+			grid-row: 1 / -1;
+		}
+	}
 
-  &__dark {
-    background-color: $color-black;
-    color: $color-white;
-  }
+	&__dark {
+		background-color: $color-black;
+		color: $color-white;
+	}
 
-  &:first-child {
-    .text__container {
-      position: $p-relative;
+	&:first-child {
+		.text__container {
+			position: $p-relative;
 
-      &::before {
-        content: "";
-        position: $p-absolute;
-        top: 0;
-        height: 6px;
-        width: $width-base / 3;
-        background-image: $main-accent;
-        animation: right $animation;
+			&::before {
+				content: '';
+				position: $p-absolute;
+				top: 0;
+				height: 6px;
+				width: calc($width-base / 3);
+				background-image: $main-accent;
+				animation: right $animation;
+				transform-origin: left;
+				will-change: transform;
 
-        @include mobile {
-          height: $height-base;
-          width: 6px;
-          top: auto;
-          left: 0;
-          animation: up $animation;
-          bottom: 0;
-        }
-      }
-    }
+				@include mobile {
+					height: $height-base;
+					width: 6px;
+					top: auto;
+					left: 0;
+					animation: up $animation;
+					bottom: 0;
+					position: $p-absolute;
+					transform-origin: bottom;
+				}
+			}
+		}
 
-    @include mobile {
-      height: 65rem;
-    }
-  }
+		@include mobile {
+			height: 65rem;
+		}
+	}
 
-  &:nth-child(2) {
-    .section__image {
-      @include mobile {
-        grid-column: 1 / 5;
-      }
+	&:nth-child(2) {
+		.section__image {
+			@include mobile {
+				grid-column: 1 / 5;
+			}
 
-      @include tablet {
-        grid-column: 1 / 7;
-      }
+			@include tablet {
+				grid-column: 1 / 7;
+			}
 
-      @include laptop {
-        grid-column: 1 / 8;
-      }
-    }
-  }
+			@include laptop {
+				grid-column: 1 / 8;
+			}
+		}
+	}
 
-  &__hero,
-  &__hero:first-child {
-    height: 49rem;
+	&__hero,
+	&__hero:first-child {
+		height: 49rem;
 
-    p {
-      margin-bottom: 0;
-    }
-  }
+		p {
+			margin-bottom: 0;
+		}
+	}
 }
 
 @keyframes up {
-  from {
-    height: 0;
-  }
-  to {
-    height: $height-base;
-  }
+	from {
+		transform: scaleY(0);
+	}
+	to {
+		transform: scaleY(1);
+	}
 }
 
 @keyframes right {
-  from {
-    width: 0;
-  }
-  to {
-    width: $width-base / 3;
-  }
+	from {
+		width: 0;
+	}
+	to {
+		width: calc($width-base / 3);
+	}
 }

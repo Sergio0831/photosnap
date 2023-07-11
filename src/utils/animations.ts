@@ -29,9 +29,9 @@ export const fadeIn = {
 };
 
 export const slideInLeft = {
-	hidden: { width: 0 },
+	hidden: { scaleX: 0 },
 	show: {
-		width: '100%',
+		scaleX: '100%',
 		transition: {
 			duration: 0.5,
 			delay: 0.8,

@@ -118,7 +118,7 @@ img {
 .container::before {
 	content: '';
 	display: $d-block;
-	@include position($position: $p-absolute, $left: -15rem, $top: 0);
+	@include position($position: $p-absolute, $top: 0);
 	@include wh;
 
 	background: linear-gradient(
@@ -137,9 +137,9 @@ img {
 
 @keyframes load {
 	from {
-		left: -15rem;
+		transform: translateX(-15rem);
 	}
 	to {
-		left: 100%;
+		transform: translateX(100%);
 	}
 }
