@@ -1,11 +1,11 @@
-import classes from "./Loading.module.scss";
+import classes from './Loading.module.scss';
 
 const Loading = () => {
-  return (
-    <div className='section-center'>
-      <div className={classes.loading}></div>
-    </div>
-  );
+	return (
+		<div className={classes.loading}>
+			<div className={classes.loader}></div>
+		</div>
+	);
 };
 
 export default Loading;

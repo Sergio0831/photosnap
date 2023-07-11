@@ -7,7 +7,6 @@
 	grid-template-columns: repeat(12, 1fr);
 	grid-template-rows: 1fr;
 	height: auto;
-	width: 100vw;
 
 	@include mobile {
 		height: 65rem;

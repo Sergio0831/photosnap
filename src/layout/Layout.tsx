@@ -11,9 +11,11 @@ const Layout = ({ children }: LayoutProps) => {
 	return (
 		<>
 			<Suspense fallback={<Loading />}>
-				<Header />
-				<main>{children}</main>
-				<Footer />
+				<div className='outer-container'>
+					<Header />
+					<main>{children}</main>
+					<Footer />
+				</div>
 			</Suspense>
 		</>
 	);

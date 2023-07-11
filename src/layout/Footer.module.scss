@@ -1,120 +1,120 @@
-@use "../styles/variables" as *;
-@use "../styles/mixins" as *;
-@use "../styles/breakpoints" as *;
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+@use '../styles/breakpoints' as *;
 
 .footer {
-  padding: $padding-base * 5.6 0;
-  background-color: $color-black;
-  color: $color-white;
+	padding: $padding-base * 5.6 0;
+	background-color: $color-black;
+	color: $color-white;
 
-  @include mobile {
-    padding: $padding-base * 6.4 0;
-  }
+	@include mobile {
+		padding: $padding-base * 6.4 0;
+	}
 
-  &__wrapper {
-    @include flex($flex-direction: column, $align-items: $align-center);
+	&__wrapper {
+		@include flex($flex-direction: column, $align-items: $align-center);
 
-    row-gap: $gap-base * 10;
+		row-gap: $gap-base * 10;
 
-    @include mobile {
-      @include flex(
-        $flex-direction: row,
-        $justify-content: $justify-between,
-        $align-items: unset
-      );
+		@include mobile {
+			@include flex(
+				$flex-direction: row,
+				$justify-content: $justify-between,
+				$align-items: unset
+			);
 
-      row-gap: $gap-base * 12;
-    }
-  }
+			row-gap: $gap-base * 12;
+		}
+	}
 
-  &__left {
-    @include flex($flex-direction: column);
+	&__left {
+		@include flex($flex-direction: column);
 
-    @include tablet {
-      display: $d-grid;
-      grid-template-areas:
-        "logo nav"
-        "icons nav";
-      column-gap: $gap-base * 10;
-    }
-  }
+		@include tablet {
+			display: $d-grid;
+			grid-template-areas:
+				'logo nav'
+				'icons nav';
+			column-gap: $gap-base * 10;
+		}
+	}
 
-  &__navlist {
-    @include flex($flex-direction: column);
-    order: 2;
-    text-align: $align-center;
-    row-gap: $gap-base;
+	&__navlist {
+		@include flex($flex-direction: column);
+		order: 2;
+		text-align: $align-center;
+		row-gap: $gap-base;
 
-    @include mobile {
-      @include flex($flex-direction: row);
-      flex-wrap: wrap;
-      justify-content: unset;
-      column-gap: $gap-base * 2.6;
-      margin-top: $margin-base * 3.2;
-      margin-bottom: $margin-base * 7;
-    }
+		@include mobile {
+			@include flex($flex-direction: row);
+			flex-wrap: wrap;
+			justify-content: unset;
+			column-gap: $gap-base * 2.6;
+			margin-top: $margin-base * 3.2;
+			margin-bottom: $margin-base * 7;
+		}
 
-    @include tablet {
-      display: $d-grid;
-      text-align: $align-center;
-      margin-bottom: 0;
-      grid-area: nav;
-      margin-top: 0;
-      margin-bottom: 0;
-      row-gap: $gap-base;
-    }
+		@include tablet {
+			display: $d-grid;
+			text-align: $align-center;
+			margin-bottom: 0;
+			grid-area: nav;
+			margin-top: 0;
+			margin-bottom: 0;
+			row-gap: $gap-base;
+		}
 
-    a {
-      @include font($font-size: $fs-xs, $line-height: 1.6rem);
-    }
-  }
+		a {
+			@include font($font-size: $fs-xs, $line-height: 1.6rem);
+		}
+	}
 
-  &__socials {
-    @include flex($align-items: $align-end);
-    column-gap: $gap-base * 1.3;
-    grid-area: icons;
-    grid-row: 2;
-    justify-content: $justify-center;
-    margin: $margin-base * 3.2 0 $margin-base * 4.5;
+	&__socials {
+		@include flex($align-items: $align-end);
+		column-gap: $gap-base * 1.3;
+		grid-area: icons;
+		grid-row: 2;
+		justify-content: $justify-center;
+		margin: $margin-base * 3.2 0 $margin-base * 4.5;
 
-    @include mobile {
-      justify-content: unset;
-      order: 3;
-      margin: 0;
-    }
+		@include mobile {
+			justify-content: unset;
+			order: 3;
+			margin: 0;
+		}
 
-    stop {
-      transition: $transition;
-    }
+		stop {
+			transition: $transition;
+		}
 
-    a {
-      @include flex();
-      transition: all $transition;
+		a {
+			@include flex();
+			transition: all $transition;
 
-      i {
-        transition: all $transition;
-      }
-    }
-  }
+			i {
+				transition: all $transition;
+			}
+		}
+	}
 
-  &__right {
-    @include flex($flex-direction: column, $align-items: $align-center);
-    row-gap: $gap-base * 3.4;
+	&__right {
+		@include flex($flex-direction: column, $align-items: $align-center);
+		row-gap: $gap-base * 3.4;
 
-    svg {
-      margin-left: $margin-base * 1.6;
-    }
+		svg {
+			margin-left: $margin-base * 1.6;
+		}
 
-    @include mobile {
-      @include flex(
-        $flex-direction: column,
-        $justify-content: $justify-between,
-        $align-items: $align-end
-      );
-    }
-  }
+		@include mobile {
+			@include flex(
+				$flex-direction: column,
+				$justify-content: $justify-between,
+				$align-items: $align-end
+			);
+		}
+	}
 
-  &__copy {
-    opacity: $text-opacity;
-  }
+	&__copy {
+		opacity: $text-opacity;
+	}
 }
