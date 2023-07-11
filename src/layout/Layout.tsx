@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import Loading from '../components/Loading';
 import Header from './Header';
-import Footer from './Footer';
+const Footer = React.lazy(() => import('./Footer'));
 
 type LayoutProps = {
 	children: React.ReactNode;

@@ -77,6 +77,7 @@ const LazyImage = ({
 			/>
 			{(isVisible || isLoaded) && (
 				<img
+					loading='lazy'
 					ref={imageRef}
 					className={imageClasses}
 					src={desktopWebp}
