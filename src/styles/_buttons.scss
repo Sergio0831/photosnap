@@ -1,92 +1,92 @@
-@use "./variables" as *;
-@use "./mixins" as *;
+@use './variables' as *;
+@use './mixins' as *;
 
 .btn {
-  cursor: pointer;
-  text-transform: uppercase;
-  border: none;
-  font-family: inherit;
-  letter-spacing: 2px;
+	cursor: pointer;
+	text-transform: uppercase;
+	border: none;
+	font-family: inherit;
+	letter-spacing: 2px;
 
-  @include font($font-weight: $fw-bold, $font-size: $fs-xs);
+	@include font($font-weight: $fw-bold, $font-size: $fs-xs);
 
-  &:focus {
-    outline: 2px dotted $color-purple;
-  }
+	&:focus {
+		outline: 2px dotted $color-purple;
+	}
 }
 
 .btn-fill {
-  @extend .btn;
-  padding: $padding-base * 1.2 $padding-base * 2.4;
-  transition: background-color $transition, color $transition;
+	@extend .btn;
+	padding: $padding-base * 1.2 $padding-base * 2.4;
+	transition: background-color $transition, color $transition;
 }
 
 .btn-fill--dark {
-  @extend .btn-fill;
+	@extend .btn-fill;
 
-  color: $color-white;
-  background-color: $color-black;
+	color: $color-white;
+	background-color: $color-black;
 
-  &:hover,
-  &:active {
-    background-color: $color-light-grey;
-    color: $color-black;
-  }
+	&:hover,
+	&:active {
+		background-color: $color-light-grey;
+		color: $color-black;
+	}
 }
 
 .btn-fill--light {
-  @extend .btn-fill;
+	@extend .btn-fill;
 
-  color: $color-black;
-  background-color: $color-white;
+	color: $color-black;
+	background-color: $color-white;
 
-  &:hover,
-  &:active {
-    background-color: $color-light-grey;
-    color: $color-black;
-  }
+	&:hover,
+	&:active {
+		background-color: $color-light-grey;
+		color: $color-black;
+	}
 }
 
 .btn-outline {
-  @extend .btn;
-  background: transparent;
+	@extend .btn;
+	background: transparent;
 
-  span {
-    position: $p-relative;
-  }
+	span {
+		position: $p-relative;
+	}
 
-  span::before {
-    content: "";
-    @include position($p-absolute, $bottom: 0, $left: 0);
+	span::before {
+		content: '';
+		@include position($p-absolute, $bottom: 0, $left: 0);
 
-    display: $d-inline-block;
-    height: 1px;
-    width: 0;
+		display: $d-inline-block;
+		height: 1px;
+		width: 0;
 
-    transition: width $transition;
-  }
+		transition: width $transition;
+	}
 
-  &:hover span::before {
-    width: $width-base;
-  }
+	&:hover span::before {
+		width: $width-base;
+	}
 }
 
 .btn-outline--light {
-  @extend .btn-outline;
+	@extend .btn-outline;
 
-  color: $color-black;
+	color: $color-black;
 
-  span::before {
-    background: $color-black;
-  }
+	span::before {
+		background: $color-black;
+	}
 }
 
 .btn-outline--dark {
-  @extend .btn-outline;
+	@extend .btn-outline;
 
-  color: $color-white;
+	color: $color-white;
 
-  span::before {
-    background: $color-white;
-  }
+	span::before {
+		background: $color-white;
+	}
 }
