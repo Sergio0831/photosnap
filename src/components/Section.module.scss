@@ -100,7 +100,7 @@
 				width: calc($width-base / 3);
 				background-image: $main-accent;
 				animation: right $animation;
-				transform-origin: left;
+				transform-origin: bottom left;
 				will-change: transform;
 
 				@include mobile {
@@ -158,9 +158,9 @@
 
 @keyframes right {
 	from {
-		width: 0;
+		transform: scaleX(0);
 	}
 	to {
-		width: calc($width-base / 3);
+		transform: scaleX(1);
 	}
 }
